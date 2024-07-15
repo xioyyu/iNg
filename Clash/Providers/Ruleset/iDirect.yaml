@@ -1,0 +1,14 @@
+payload:
+  # iDirect ###### ###### ###### ###### ###### ######
+
+  # 域名
+  - DOMAIN,time.windows.com
+
+  # 域名后缀
+
+  # 域名关键字
+  - DOMAIN-KEYWORD,pan666
+  - DOMAIN-KEYWORD,niceso
+  - DOMAIN-KEYWORD,alist
+  - DOMAIN-KEYWORD,turgame
+  - DOMAIN-KEYWORD,firecore
