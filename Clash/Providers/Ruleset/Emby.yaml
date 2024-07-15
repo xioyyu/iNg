@@ -1,5 +1,5 @@
 payload:
-  # Emby
+  # Emby 分流规则
   - DOMAIN-SUFFIX,misakaf.org
   - DOMAIN-SUFFIX,emby.nexitally.com
   - DOMAIN-SUFFIX,emby.cjpc.cc
