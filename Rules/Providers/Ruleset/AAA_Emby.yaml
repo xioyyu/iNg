@@ -7,6 +7,7 @@ payload:
   - DOMAIN,stream2.misakaf.org
   - DOMAIN,stream3.misakaf.org
   - DOMAIN,stream4.misakaf.org
+  - DOMAIN,stream5.misakaf.org
 
   # 域名后缀 #
   # - DOMAIN-SUFFIX,misakaf.org
