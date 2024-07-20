@@ -9,6 +9,6 @@ payload:
   - DOMAIN,stream4.misakaf.org
 
   # 域名后缀 #
-  - DOMAIN-SUFFIX,misakaf.org
+  # - DOMAIN-SUFFIX,misakaf.org
 
   # 域名关键字 #
