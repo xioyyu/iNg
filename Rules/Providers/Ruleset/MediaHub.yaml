@@ -13,6 +13,7 @@ payload:
   # 域名后缀 #
   - DOMAIN-SUFFIX,tanhuatv.site
   # - DOMAIN-SUFFIX,misakaf.org
+  # - DOMAIN-SUFFIX,
 
   # 域名关键字 #
   # - DOMAIN-KEYWORD,
