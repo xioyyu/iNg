@@ -1,6 +1,7 @@
 payload:
 
-  # Direct ###### ###### ###### ###### ###### ######
+  # Direct
+  # behavior: classical
 
   # 域名 # - DOMAIN,
   - DOMAIN,time.windows.com
