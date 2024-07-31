@@ -5,6 +5,7 @@ payload:
 
   # 域名 # - DOMAIN,
   - DOMAIN,emby.cn2gias.uk
+  - DOMAIN,preus.cn2gias.uk
 
   # 域名后缀 # - DOMAIN-SUFFIX,
 
