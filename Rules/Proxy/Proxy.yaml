@@ -3,11 +3,6 @@ payload:
   # Proxy
   # behavior: classical
 
-  # 域名 # - DOMAIN,
-
-  # 域名后缀 # - DOMAIN-SUFFIX,
   - DOMAIN-SUFFIX,ip.sb
   - DOMAIN-SUFFIX,ipify.org
   - DOMAIN-SUFFIX,ipleak.net
-
-  # 域名关键字 # - DOMAIN-KEYWORD,
