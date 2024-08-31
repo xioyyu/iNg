@@ -3,10 +3,5 @@ payload:
   # MediaHubSP
   # behavior: classical
 
-  # 域名 # - DOMAIN,
   - DOMAIN,emby.cn2gias.uk
   - DOMAIN,preus.cn2gias.uk
-
-  # 域名后缀 # - DOMAIN-SUFFIX,
-
-  # 域名关键字 # - DOMAIN-KEYWORD,
