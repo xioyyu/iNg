@@ -10,7 +10,7 @@
   proxy-providers:
     𝑵𝒐𝒅𝒆𝒔: # 代理提供者名称，若要自定义注意全部替换 # 花体英文转换器：https://www.iamwawa.cn/fontchanger.html
       type: http ###### 👇👇👇 订阅链接 👇👇👇 ######
-      url: xxx
+      url: xxxxxx
       interval: 86400 # 健康检查间隔，如不为 0 则启用定时测试，单位为秒，这里即一天（24小时）更新一次代理列表
       path: ./proxy/Nodes.yaml # 可选，文件路径，不可重复，不填写时会使用 url 的 MD5 作为此文件的文件名
       health-check: # 健康检查 / 延迟测试，检测代理节点的可用性
@@ -19,7 +19,7 @@
 
     # 𝒙𝒙𝒙: # 更多代理提供者自行复制粘贴添加，并同步修改“xxx”处的内容
       # type: http
-      # url: xxx
+      # url: xxxxxx
       # interval: 86400
       # path: ./proxy/xxx.yaml
       # health-check:
