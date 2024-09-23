@@ -1,0 +1,234 @@
+# 修改时间：2024-09-24
+# by GitHub@sunfing Telegram@ingpapa
+# 小白友好配置，注释较多，糕手大佬请忽略
+# 仓库地址：https://github.com/sunfing/iNg/blob/main/Profiles/ConfProfile
+
+[General]
+# >>> 日志等级
+loglevel = notify
+# >>> 跳过代理 # 适用于 HTTP/HTTPS 和其他协议请求，主要针对代理流量，对所有适用的请求生效，但不影响 TUN 接口的流量处理
+skip-proxy = localhost, *.local, injections.adguard.org, local.adguard.org, captive.apple.com, guzzoni.apple.com, 0.0.0.0/8, 10.0.0.0/8, 17.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.168.0.0/16, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 240.0.0.0/4, 255.255.255.255/32
+# >>> 自定义 DNS 服务器
+dns-server = 223.5.5.5, 114.114.114.114, 8.8.8.8, 1.1.1.1
+# >>> 加密的 DNS 服务器 # 同时支持 DoH (DNS over HTTPS) 与 DoT (DNS over TLS)，非必要不启用
+# encrypted-dns-server = https://doh.pub/dns-query, https://dns.alidns.com/dns-query
+# >>> 劫持其它 DNS 服务器
+hijack-dns = 8.8.8.8:53, 8.8.4.4:53
+# >>> 从 /etc/hosts 读取 DNS 记录
+read-etc-hosts = true
+# >>> 返回真实 IP
+always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com*.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com, *.battlenet.com.cn, *.battlenet.com, *.blzstatic.cn, *.battle.net
+# >>> Internet 测试 URL # 国内测速 URL
+internet-test-url = http://www.baidu.com
+# >>> 代理测速 URL
+proxy-test-url = http://www.google.com/generate_204
+# >>> 测试超时（秒）
+test-timeout = 5
+# >>> 自定义 GeoIP 数据库 URL
+geoip-maxmind-url = https://github.com/Hackl0us/GeoIP2-CN/raw/release/Country.mmdb
+# >>> 禁用 GeoIP 自动更新
+disable-geoip-db-auto-update = false
+# >>> IPv6 DNS 查询 # 默认关闭，建议禁用
+ipv6 = false
+# >>> IPv6 VIF # 默认禁用，建议禁用
+ipv6-vif = disabled
+# >>> 允许 Wi-Fi 访问
+allow-wifi-access = true
+# >>> 允许个人热点访问
+allow-hotspot-access = true
+# >>> HTTP 代理服务端口
+wifi-access-http-port = 7890
+# >>> SOCKS5 代理服务端口
+wifi-access-socks5-port = 7891
+# >>> Wi-Fi 助理 # Wi-Fi 网络不佳时尝试使用蜂窝数据建立连接，建议禁用
+wifi-assist = false
+# >>> 网络并发 # Wi-Fi 网络不佳时同时使用 Wi-Fi 和蜂窝数据的连接，建议禁用
+all-hybrid = false
+# >>> 隐藏状态栏中的 VPN 图标，建议禁用
+hide-vpn-icon = false
+# >>> 远程控制器
+external-controller-access = surgepassword@127.0.0.1:9090
+# >>> HTTP API # 可使用另一个 App 或者设备通过 HTTP API 控制 Surge
+http-api = surgepassword@127.0.0.1:9191
+# Web 控制器开关
+http-api-web-dashboard = true
+# >>> 当遇到 REJECT 策略时返回错误页
+show-error-page-for-reject = true
+# >>> 排除简单主机名 # 与 skip-proxy 参数一样。此选项允许请求使用由 Surge VIF 而不是 Surge 代理处理的简单主机名（不带点）。 比如：mysql01、redis01
+exclude-simple-hostnames = true
+# TLS 引擎 (default、secure-transport、openssl、network-framework) # OpenSSL 或者 Network.Framework，可开启 TLS 1.3 支持。OpenSSL 更稳定，Network.Framework 可提供更多功能
+tls-provider = openssl
+# >>> Network framwork # 是否使用 Apple 的 Network Framework 来处理网络连接，建议禁用
+network-framework = false
+# >>> 兼容模式 # 默认禁用
+# 0：自动，在 5.8.0 之前的 Surge iOS 版本中，这相当于 1，从 5.8.0 开始，它相当于 3
+# 1：代理接管 + VIF，在此模式下，代理接管的优先级高于 VIF 接管，提供最佳性能，但某些应用程序可能会检查代理设置并拒绝工作
+# 2：仅代理接管
+# 3：VIF Takeover Only：最新版本的默认工作模式
+# 4：代理接管 + VIF，但代理使用 VIF 地址而不是环回地址
+# 5：代理接管 + VIF，但 VIF 路由使用多个较小的路由进行接管，没有配置默认路由，可以用来绕过一些特殊问题。（例如，HomeKit 安防摄像头）
+# compatibility-mode = 0
+# >>> Surge VIF # 适用于 TCP/UDP 流量，Surge VIF 接口可以看作是 TUN 接口的一种特殊实现
+# > 排除特定 IP 地址或网段，使这些流量不通过 TUN 接口处理，而是直接走系统默认路由 # 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12
+# tun-excluded-routes = 0.0.0.0/8, 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.168.0.0/16, 192.88.99.0/24, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+# > 默认情况下，Surge VIF 接口将自身声明为默认路由。但是，由于 Wi-Fi 接口的路由较小，因此某些流量可能无法通过浪涌 VIF 接口。使用此选项可添加较小的路由
+# tun-included-routes = 192.168.1.12/32
+# >>> 当节点不支持UDP时，默认 fallback 到 reject
+udp-policy-not-supported-behaviour = REJECT
+
+[Proxy Group]
+# no-alert = 0              含义：控制是否在更新时弹出提示。0 表示更新时会弹出提示，提醒用户订阅内容已更新。1 表示更新时不弹出提示，静默更新。
+# hidden = 0                含义：控制是否在界面上显示该订阅。0 表示该订阅在 Surge 的界面上是可见的。1 表示该订阅是隐藏的，不会在界面上显示。
+# include-all-proxies = 0   含义：控制是否在订阅中包含所有代理。0 表示不包含所有代理，可能只包含某些特定类型的代理或规则。1 表示包含所有代理，无论类型。
+# persistent = 1            含义：控制订阅是否持久化。0 表示订阅内容不会持久化，可能在某些情况下会被清除。1 表示订阅内容会持久化，确保在应用重启或网络切换时保持不变。
+# >>> 策略组
+· Proxy         = select, · Direct, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Surge.png
+· Telegram      = select, · Direct, · Message, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Telegram.png
+· Discord       = select, · Direct, · Message, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Discord.png
+· Message       = select, · Direct, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Speaker.png
+· Claude        = select, · Direct, · AI, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/ClaudeAI.png
+· ChatGPT       = select, · Direct, · AI, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/OpenAI.png
+· Copilot       = select, · Direct, · AI, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Copilot.png
+· Gemini        = select, · Direct, · AI, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Gemini.png
+· AI            = select, · Direct, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/AI.png
+· Emby          = select, · Direct, · MediaHub, · MediaHubSP, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Emby.png
+· EmbySP        = select, · Direct, · MediaHub, · MediaHubSP, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Emby.png
+· Spotify       = select, · Direct, · Media, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Spotify.png
+· YTMusic       = select, · Direct, · Media, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/YouTubeMusic.png
+· Bilibili      = select, · Direct, · Media, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Bilibili.png
+· Instagram     = select, · Direct, · Media, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Instagram.png
+· TikTok        = select, · Direct, · Media, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/TikTok.png
+· YouTube       = select, · Direct, · Media, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/YouTube.png
+· Twitch        = select, · Direct, · Media, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Twitch.png
+· AppleTV       = select, · Direct, · Media, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/AppleTV.png
+· Netflix       = select, · Direct, · Media, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Netflix.png
+· Disney+       = select, · Direct, · Media, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Disney+.png
+· Twitter       = select, · Direct, · Media, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Twitter.png
+· Media         = select, · Direct, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Media.png
+· GitHub        = select, · Direct, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/GitHub.png
+· Cloudflare    = select, · Direct, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Cloudflare.png
+· Apple         = select, · Direct, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Apple.png
+· Microsoft     = select, · Direct, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Microsoft.png
+· Google        = select, · Direct, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Google.png
+· Game          = select, · Direct, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Game.png
+· Download      = select, · Direct, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Cloud.png
+· Speedtest     = select, · Direct, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Speedtest.png
+· Final         = select, · Direct, · Proxy, · Lite, · Manual-HK, · Manual-TW, · Manual-SG, · Manual-JP, · Manual-US, · Auto-HK, · Auto-TW, · Auto-SG, · Auto-JP, · Auto-US, · Nodes, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Final.png
+· Direct        = select, DIRECT, REJECT, hidden = 1, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Direct.png
+· Reject        = select, REJECT, DIRECT, hidden = 1, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Reject.png
+# >>> 外部节点
+# 自定义特殊节点组 - 手动切换
+· Lite          = select, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)^(?!.*(emby)).*(0\.), icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Heart.png # 过滤前者并匹配后者
+· MediaHub      = select, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(emby|0\.)), icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Server.png
+· MediaHubSP    = select, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(emby|0\.)), icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Server.png
+# 国家或地区节点组 - 手动切换
+· Manual-HK     = select, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(🇭🇰|香港|hk|h\.k\.|hong\ kong|hongkong)\b)), icon-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png # 以下部分正则表达式均开启了单词边界“\b”，如果部分节点无法匹配上，请删除正则表达式中的“\b”
+· Manual-TW     = select, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(🇨🇳|🇹🇼|台湾|tw|taiwan)\b)), icon-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+· Manual-SG     = select, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(🇸🇬|新加坡|sg|singapore)\b)), icon-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+· Manual-JP     = select, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(🇯🇵|日本|jp|japan)\b)), icon-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+· Manual-US     = select, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(🇺🇸|美国|us|u\.s\.|united\ states|unitedstates)\b)), icon-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+# · Manual-MO     = select, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(🇲🇴|澳门|mo|macao)\b)), icon-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Macao.png
+# · Manual-RU     = select, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(🇷🇺|俄罗斯|ru|russia)\b)), icon-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Russia.png
+# 国家或地区节点组 - 自动选择
+· Auto-HK       = smart, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 1, include-all-proxies = 0, policy-regex-filter = (?i)^(?!.*(emby|fam|家宽)).*(\b(🇭🇰|香港|hk|h\.k\.|hong\ kong|hongkong)\b), icon-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+· Auto-TW       = smart, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 1, include-all-proxies = 0, policy-regex-filter = (?i)^(?!.*(emby|fam|家宽)).*(\b(🇨🇳|🇹🇼|台湾|tw|taiwan)\b), icon-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+· Auto-SG       = smart, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 1, include-all-proxies = 0, policy-regex-filter = (?i)^(?!.*(emby|fam|家宽)).*(\b(🇸🇬|新加坡|sg|singapore)\b), icon-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+· Auto-JP       = smart, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 1, include-all-proxies = 0, policy-regex-filter = (?i)^(?!.*(emby|fam|家宽)).*(\b(🇯🇵|日本|jp|japan)\b), icon-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+· Auto-US       = smart, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 1, include-all-proxies = 0, policy-regex-filter = (?i)^(?!.*(emby|fam|家宽|starlink)).*(\b(🇺🇸|美国|us|u\.s\.|united\ states|unitedstates)\b), icon-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+# 手动切换节点组 - 手动切换 ###### 👇👇👇 订阅链接 👇👇👇 ######
+· Nodes         = select, policy-path = xxxxxx, update-interval=86400, no-alert = 0, hidden = 0, include-all-proxies = 0, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Available.png
+# 代理提供者节点组 - 手动切换
+# 以下策略组非必需且没有在上述任意策略组中被引用，仅用做查看每个代理提供者的节点情况，可直接 注释/删除/替换为筛选自己代理提供者/加入任意策略组使用
+· PRE           = url-test, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(pre)\b)), icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
+· SHN           = url-test, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(shn)\b)), icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
+· ACA           = url-test, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(aca)\b)), icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
+· SDK           = url-test, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(sdk)\b)), icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
+· NAU           = url-test, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(nau)\b)), icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
+· SPC           = url-test, include-other-group = · Nodes, update-interval = 0, no-alert = 0, hidden = 0, include-all-proxies = 0, policy-regex-filter = (?i)(?=.*(\b(spc)\b)), icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
+
+[Rule]
+# >>> 本地局域网地址
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Lan/Lan.list, · Direct, update-interval=86400
+# >>> 广告过滤
+RULE-SET, https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge.txt, · Reject, update-interval=86400, extended-matching
+# >>> 自定义规则
+RULE-SET, https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Proxy/Proxy.list, · Proxy, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/sunfing/iNg/main/Rules/MediaHub/EmbySP/EmbySP.list, · EmbySP, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/sunfing/iNg/main/Rules/MediaHub/Emby/Emby.list, · Emby, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Direct/Direct.list, · Direct, update-interval=86400
+# >>> 即时通讯
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/WeChat/WeChat.list, · Direct, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GoogleVoice/GoogleVoice.list, · Manual-US, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Telegram/Telegram.list, · Telegram, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Whatsapp/Whatsapp.list, · Message, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Discord/Discord.list, · Discord, update-interval=86400
+# >>> AI 服务
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Claude/Claude.list, · Claude, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI.list, · ChatGPT, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Copilot/Copilot.list, · Copilot, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Gemini/Gemini.list, · Gemini, update-interval=86400
+# >>> 全球流媒体
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AppleMusic/AppleMusic.list, · Direct, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Spotify/Spotify.list, · Spotify, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTubeMusic/YouTubeMusic.list, · YTMusic, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/BiliBili/BiliBili.list, · Bilibili, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Instagram/Instagram.list, · Instagram, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TikTok/TikTok.list, · TikTok, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube.list, · YouTube, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Twitch/Twitch.list, · Twitch, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AppleTV/AppleTV.list, · AppleTV, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Netflix/Netflix.list, · Netflix, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Disney/Disney.list, · Disney+, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PrimeVideo/PrimeVideo.list, · Media, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/HBOHK/HBOHK.list, · Media, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/HBOUSA/HBOUSA.list, · Media, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Twitter/Twitter.list, · Twitter, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GlobalMedia/GlobalMedia_All_No_Resolve.list, · Media, update-interval=86400
+    # 与 MTIM 搭配使用 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GlobalMedia/GlobalMedia_MITM.sgmodule
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMedia/ChinaMedia.list, · Direct, update-interval=86400
+# >>> 互联网服务
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GoogleFCM/GoogleFCM.list, · Proxy, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Tencent/Tencent.list, · Direct, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GitHub/GitHub.list, · GitHub, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Cloudflarecn/Cloudflarecn.list, · Direct, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Cloudflare/Cloudflare.list, · Cloudflare, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple_All_No_Resolve.list, · Apple, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/OneDrive/OneDrive.list, · Download, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list, · Microsoft, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GoogleDrive/GoogleDrive.list, · Download, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google.list, · Google, update-interval=86400
+# >>> 游戏服务
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/SteamCN/SteamCN.list, · Direct, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Game/GameDownloadCN/GameDownloadCN.list, · Direct, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Game/GameDownload/GameDownload.list, · Download, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Steam/Steam.list, · Game, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Epic/Epic.list, · Game, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Origin/Origin.list, · Game, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Sony/Sony.list, · Game, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Nintendo/Nintendo.list, · Game, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Game/Game.list, · Game, update-interval=86400
+# >>> 下载服务
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Download/Download.list, · Direct, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PrivateTracker/PrivateTracker.list, · Direct, update-interval=86400
+# >>> 测速服务
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Speedtest/Speedtest.list, · Speedtest, update-interval=86400
+# >>> 主要代理
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Proxy/Proxy_All_No_Resolve.list, · Proxy, update-interval=86400, extended-matching
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Global/Global_All_No_Resolve.list, · Proxy, update-interval=86400, extended-matching
+# >>> 全球直连
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN.list, · Direct, extended-matching, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/Blankwonder/surge-list/master/cn.list, · Direct, update-interval=86400
+# >>> 本地局域网地址
+RULE-SET, LAN, · Direct
+# >>> 剩余未匹配国内网站
+DOMAIN-SUFFIX, cn, · Direct
+DOMAIN-KEYWORD, -cn, · Direct
+# >>> GEO 相关
+GEOIP, CN, · Direct
+# >>> 流量兜底
+FINAL, · Final, dns-failed
+
+[URL Rewrite]
+^https?://(www.)?(g|google).cn https://www.google.com 302
+
+# by GitHub@sunfing Telegram@ingpapa，转载请保留/注明出处
