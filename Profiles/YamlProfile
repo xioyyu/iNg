@@ -1,4 +1,4 @@
-# 修改时间：2024-09-23
+# 修改时间：2024-09-24
 # by GitHub@sunfing Telegram@ingpapa
 # 小白友好配置，注释较多，糕手大佬请忽略
 # 仓库地址：https://github.com/sunfing/iNg/blob/main/Profiles/YamlProfile
@@ -449,32 +449,32 @@
     # 代理提供者节点组 - 手动切换
     # 以下策略组非必需且没有在上述任意策略组中被引用，仅用做查看每个代理提供者的节点情况，可直接 注释/删除/替换为筛选自己代理提供者/加入任意策略组使用
       - name: 🛫 PRE节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_auto
         filter: (?i)(?=.*(\b(pre)\b))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
 
       - name: 🛫 SHN节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_auto
         filter: (?i)(?=.*(\b(shn)\b))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
 
       - name: 🛫 ACA节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_auto
         filter: (?i)(?=.*(\b(aca)\b))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
 
       - name: 🛫 SDK节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_auto
         filter: (?i)(?=.*(\b(sdk)\b))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
 
       - name: 🛫 NAU节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_auto
         filter: (?i)(?=.*(\b(nau)\b))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
 
       - name: 🛫 SPC节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_auto
         filter: (?i)(?=.*(\b(spc)\b))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
 
