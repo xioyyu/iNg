@@ -1,7 +1,7 @@
 # 修改时间：2024-09-23
 # by GitHub@sunfing Telegram@ingpapa
 # 小白友好配置，注释较多，糕手大佬请忽略
-# 仓库地址：https://github.com/sunfing/iNg/blob/main/Profiles/YamlProfile.yaml
+# 仓库地址：https://github.com/sunfing/iNg/blob/main/Profiles/YamlProfile
 # 配置中的“icon”配置不需要无需删除，不影响 OpenClash、CFMA 等正常运行且此类客户端“icon”配置不会生效
 # 不需要 Emoji 请自行利用 VsCode 等工具，使用正则表达式匹配旗帜 Emoji 以及其他所有类型的 Emoji，并包括后面的空格（如果有）进行删除，注意不要删掉“国家或地区节点组”中的正则过滤内的 Emoji（删除后会导致正则过滤无法正常生效/自行修改正则过滤）
 # 正则表达式：[\u{1F1E6}-\u{1F1FF}]{2}\s*|[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{2300}-\u{23FF}\u{2B50}-\u{2B55}]\s*
