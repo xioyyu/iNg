@@ -4,6 +4,8 @@ payload:
   # behavior: classical
 
   - DOMAIN,time.windows.com
+  - DOMAIN-SUFFIX,msftconnecttest.com
+  - DOMAIN-SUFFIX,msftncsi.com
   - DOMAIN-KEYWORD,alist
   - DOMAIN-KEYWORD,pan666
   - DOMAIN-KEYWORD,turgame
