@@ -1,5 +1,5 @@
 # 修改时间：2024-09-24
-# by GitHub@sunfing Telegram@ingpapa
+# by GitHub@sunfing Telegram@https://t.me/huojiweiguoba_wiki
 # 小白友好配置，注释较多，糕手大佬请忽略
 # 仓库地址：https://github.com/sunfing/iNg/blob/main/Profiles/YamlProfile
 # 配置中的“icon”配置不需要无需删除，不影响 OpenClash、CFMA 等正常运行且此类客户端“icon”配置不会生效
@@ -27,7 +27,7 @@
         # url: http://www.gstatic.com/generate_204
 
 # 节点组锚点 ###### ###### ###### ###### ###### ###### 自定义特殊节点组、国家或地区节点组、手动切换节点组、代理提供者节点组
-  anchor_node_groups_manual: &anchor_node_groups_manual # 节点组 - 手动切换规则集配置
+  anchor_node_groups_sele: &anchor_node_groups_sele # 节点组 - 手动切换规则集配置
     type: select
     use:
       - 𝑵𝒐𝒅𝒆𝒔
@@ -43,25 +43,25 @@
       # - 𝒙𝒙𝒙
 
 # 策略组锚点 ###### ###### ###### ###### ###### ###### 服务细分、流量兜底
-  anchor_policy_groups_general: &anchor_policy_groups_general # 策略组 - 通用规则集配置
+  anchor_policy_groups_default: &anchor_policy_groups_default # 策略组 - 默认规则集配置
     type: select
-    proxies: [🎯 全球直连, 🚀 主要代理, 🎁 省流节点, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇸 美国节点, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🚀 默认代理, 🎁 省流节点, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇸 美国节点, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🍟 节点集合]
 
   anchor_policy_groups_message: &anchor_policy_groups_message # 策略组 - 即时通讯规则集配置
     type: select
     proxies: [🎯 全球直连, 💬 即时通讯, 🎁 省流节点, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇸 美国节点, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🍟 节点集合]
 
-  anchor_policy_groups_ai: &anchor_policy_groups_ai # 策略组 - AI 服务规则集配置
+  anchor_policy_groups_aigc: &anchor_policy_groups_aigc # 策略组 - 语言模型规则集配置
     type: select
     proxies: [🎯 全球直连, 🎨 语言模型, 🎁 省流节点, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇸 美国节点, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🍟 节点集合]
+
+  anchor_policy_groups_media: &anchor_policy_groups_media # 策略组 - 媒体播放规则集配置
+    type: select
+    proxies: [🎯 全球直连, 🎬 媒体播放, 🎁 省流节点, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇸 美国节点, 🍟 节点集合]
 
   anchor_policy_groups_mediahub: &anchor_policy_groups_mediahub # 策略组 - 媒体中心规则集配置
     type: select
     proxies: [🎯 全球直连, ⚪ 常观节点, 🟡 特观节点, 🎁 省流节点, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇸 美国节点, 🍟 节点集合]
-
-  anchor_policy_groups_media: &anchor_policy_groups_media # 策略组 - 全球流媒体规则集配置
-    type: select
-    proxies: [🎯 全球直连, 🎬 媒体播放, 🎁 省流节点, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇸 美国节点, 🍟 节点集合]
 
 # 全局配置
   port: 7890        # HTTP 代理端口
@@ -111,6 +111,9 @@
       - "+.local"
       - "time.*.com"
       - "ntp.*.com"
+      - "dns.msftncsi.com"
+      - "msftncsi.com"
+      - "msftconnecttest.com"
     nameserver:
       - 223.5.5.5
       - 114.114.114.114
@@ -127,19 +130,23 @@
 # 代理组   >>> 策略组 / 节点组 <<<
   proxy-groups:
     # 默认主要策略组
-      - name: 🚀 主要代理
+      - name: 🚀 默认代理
         type: select
-        proxies: [🎯 全球直连, 🎁 省流节点, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇸 美国节点, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🍟 节点集合]
+        proxies: [🎯 全球直连, 🚫 全球拦截, 🎁 省流节点, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇸 美国节点, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🍟 节点集合]
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/AvailableA.png
 
     # 服务细分策略组
       - name: 💬 即时通讯
-        <<: *anchor_policy_groups_general
+        <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Speaker.png
 
       - name: 🎨 语言模型
-        <<: *anchor_policy_groups_general
+        <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/AI.png
+
+      - name: 🎬 媒体播放
+        <<: *anchor_policy_groups_default
+        icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Media.png
 
       - name: 💿 常规观影
         <<: *anchor_policy_groups_mediahub
@@ -148,10 +155,6 @@
       - name: 📀 特殊观影
         <<: *anchor_policy_groups_mediahub
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Emby.png
-
-      - name: 🎬 媒体播放
-        <<: *anchor_policy_groups_general
-        icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Media.png
 
       - name: 📲 电报消息
         <<: *anchor_policy_groups_message
@@ -162,19 +165,19 @@
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Discord.png
 
       - name: ✨ Claude
-        <<: *anchor_policy_groups_ai
+        <<: *anchor_policy_groups_aigc
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/ClaudeAI.png
 
       - name: ✨ ChatGPT
-        <<: *anchor_policy_groups_ai
+        <<: *anchor_policy_groups_aigc
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/OpenAI.png
 
       - name: ✨ Copilot
-        <<: *anchor_policy_groups_ai
+        <<: *anchor_policy_groups_aigc
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Copilot.png
 
       - name: ✨ Gemini
-        <<: *anchor_policy_groups_ai
+        <<: *anchor_policy_groups_aigc
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Gemini.png
 
       - name: 🎶 声田音乐
@@ -222,40 +225,40 @@
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Twitter.png
 
       - name: 🎓 开源托管
-        <<: *anchor_policy_groups_general
+        <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/GitHub.png
 
       - name: 🥟 云端防护
-        <<: *anchor_policy_groups_general
+        <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Cloudflare.png
 
       - name: 🍎 苹果服务
-        <<: *anchor_policy_groups_general
+        <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Apple.png
 
       - name: Ⓜ 微软服务
-        <<: *anchor_policy_groups_general
+        <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Microsoft.png
 
       - name: ❄ 谷歌服务
-        <<: *anchor_policy_groups_general
+        <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Google.png
 
       - name: 🎮 游戏服务
-        <<: *anchor_policy_groups_general
+        <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Game.png
 
       - name: ☁ 下载服务
-        <<: *anchor_policy_groups_general
+        <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Cloud.png
 
       - name: ⚡ 速度测试
-        <<: *anchor_policy_groups_general
+        <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Speedtest.png
 
     # 流量兜底策略组
       - name: 🐟 漏网之鱼
-        <<: *anchor_policy_groups_general
+        <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Final.png
 
     # 直连过滤策略组
@@ -273,62 +276,55 @@
           - DIRECT
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Reject.png
 
-      - name: 🍀 应用净化
-        type: select
-        proxies:
-          - REJECT
-          - DIRECT
-        icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Pure.png
-
     # 自定义特殊节点组 - 手动切换
-      - name: 🎁 省流节点
-        <<: *anchor_node_groups_manual
-        filter: (?i)^(?!.*(emby)).*(0\.) # 过滤前者并匹配后者
-        icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Heart.png
-
       - name: ⚪ 常观节点
-        <<: *anchor_node_groups_manual
-        filter: (?i)(?=.*(emby|0\.))
+        <<: *anchor_node_groups_sele
+        filter: (?i)(?=.*(emby))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Server.png
 
       - name: 🟡 特观节点
-        <<: *anchor_node_groups_manual
-        filter: (?i)(?=.*(emby|0\.))
+        <<: *anchor_node_groups_sele
+        filter: (?i)(?=.*(emby))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Server.png
+
+      - name: 🎁 省流节点
+        <<: *anchor_node_groups_sele
+        filter: (?i)^(?!.*(emby)).*(0\.) # 过滤前者并匹配后者
+        icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Heart.png
 
     # 国家或地区节点组 - 手动切换
       - name: 🇭🇰 香港节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_sele
         filter: (?i)(?=.*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 
       - name: 🇹🇼 台湾节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_sele
         filter: (?i)(?=.*(🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
 
       - name: 🇸🇬 狮城节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_sele
         filter: (?i)(?=.*(🇸🇬|新加坡|\b(sg)\b|singapore))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 
       - name: 🇯🇵 日本节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_sele
         filter: (?i)(?=.*(🇯🇵|日本|\b(jp)\b|japan))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 
       - name: 🇺🇸 美国节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_sele
         filter: (?i)(?=.*(🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 
       # - name: 🇲🇴 澳门节点
-        # <<: *anchor_node_groups_manual
+        # <<: *anchor_node_groups_sele
         # filter: (?i)(?=.*(🇲🇴|澳门|\b(mo)\b|macao))
         # icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Macao.png
 
       # - name: 🇷🇺 俄国节点
-        # <<: *anchor_node_groups_manual
+        # <<: *anchor_node_groups_sele
         # filter: (?i)(?=.*(🇷🇺|俄罗斯|\b(ru)\b|russia))
         # icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Russia.png
 
@@ -360,38 +356,38 @@
 
     # 手动切换节点组 - 手动切换
       - name: 🍟 节点集合
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_sele
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Available.png
 
     # 代理提供者节点组 - 手动切换
       # 以下策略组非必需且没有在上述任意策略组中被引用，仅用做查看每个代理提供者的节点情况，可直接 注释/删除/替换为筛选自己代理提供者/加入任意策略组使用
       - name: 🛫 PRE节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_sele
         filter: (?i)(?=.*(\b(pre)\b))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
 
       - name: 🛫 SHN节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_sele
         filter: (?i)(?=.*(\b(shn)\b))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
 
       - name: 🛫 ACA节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_sele
         filter: (?i)(?=.*(\b(aca)\b))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
 
       - name: 🛫 SDK节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_sele
         filter: (?i)(?=.*(\b(sdk)\b))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
 
       - name: 🛫 SPC节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_sele
         filter: (?i)(?=.*(\b(spc)\b))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
 
       - name: 🛫 NAU节点
-        <<: *anchor_node_groups_manual
+        <<: *anchor_node_groups_sele
         filter: (?i)(?=.*(\b(nau)\b))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Airport.png
 
@@ -402,9 +398,9 @@
     # 广告过滤
       - RULE-SET,UnBan,🎯 全球直连
       - RULE-SET,BanAD,🚫 全球拦截
-      - RULE-SET,BanProgramAD,🍀 应用净化
+      - RULE-SET,BanProgramAD,🚫 全球拦截
     # 自定义规则
-      - RULE-SET,AAA_Proxy,🚀 主要代理
+      - RULE-SET,AAA_Proxy,🚀 默认代理
       - RULE-SET,AAA_EmbySP,📀 特殊观影
       - RULE-SET,AAA_Emby,💿 常规观影
       - RULE-SET,AAA_Direct,🎯 全球直连
@@ -417,12 +413,12 @@
       - RULE-SET,Telegram,📲 电报消息
       - RULE-SET,Whatsapp,💬 即时通讯
       - RULE-SET,Discord,🎙 语音社群
-    # AI 服务
+    # 语言模型
       - RULE-SET,Claude,✨ Claude
       - RULE-SET,OpenAI,✨ ChatGPT
       - RULE-SET,Copilot,✨ Copilot
       - RULE-SET,Gemini,✨ Gemini
-    # 全球流媒体
+    # 媒体播放
       - RULE-SET,AppleMusic,🎯 全球直连
       - RULE-SET,Spotify,🎶 声田音乐
       - RULE-SET,YouTubeMusic,🎶 油管音乐
@@ -442,7 +438,7 @@
       - RULE-SET,GlobalMedia,🎬 媒体播放
       - RULE-SET,ChinaMedia,🎯 全球直连
     # 互联网服务
-      - RULE-SET,GoogleFCM,🚀 主要代理
+      - RULE-SET,GoogleFCM,🚀 默认代理
       - RULE-SET,Tencent,🎯 全球直连
       - RULE-SET,GitHub,🎓 开源托管
       - RULE-SET,Cloudflarecn,🎯 全球直连
@@ -468,8 +464,8 @@
     # 测速服务
       - RULE-SET,Speedtest,⚡ 速度测试
     # 主要代理
-      - RULE-SET,Proxy,🚀 主要代理
-      - RULE-SET,Global,🚀 主要代理
+      - RULE-SET,Proxy,🚀 默认代理
+      - RULE-SET,Global,🚀 默认代理
     # 全球直连
       - RULE-SET,China,🎯 全球直连
       - RULE-SET,ChinaIPs,🎯 全球直连
@@ -499,12 +495,12 @@
         <<: *classical
         url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml
         path: ./rule/BanAD.yaml
-      BanProgramAD: # 🍀 应用净化
+      BanProgramAD: # 🚫 全球拦截
         <<: *classical
         url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml
         path: ./rule/BanProgramAD.yaml
     # 自定义规则
-      AAA_Proxy: # 🚀 主要代理
+      AAA_Proxy: # 🚀 默认代理
         <<: *classical
         url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Proxy/Proxy.yaml
         path: ./rule/AAA_Proxy.yaml
@@ -541,7 +537,7 @@
         <<: *classical
         url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord_No_Resolve.yaml
         path: ./rule/Discord.yaml
-    # AI 服务
+    # 语言模型
       Claude: # ✨ Claude
         <<: *classical
         url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude_No_Resolve.yaml
@@ -558,7 +554,7 @@
         <<: *classical
         url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini_No_Resolve.yaml
         path: ./rule/Gemini.yaml
-    # 全球流媒体
+    # 媒体播放
       AppleMusic: # 🎯 全球直连
         <<: *classical
         url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AppleMusic/AppleMusic_No_Resolve.yaml
@@ -632,7 +628,7 @@
         url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMedia/ChinaMedia_No_Resolve.yaml
         path: ./rule/ChinaMedia.yaml
     # 互联网服务
-      GoogleFCM: # 🚀 主要代理
+      GoogleFCM: # 🚀 默认代理
         <<: *classical
         url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleFCM/GoogleFCM_No_Resolve.yaml
         path: ./rule/GoogleFCM.yaml
@@ -724,11 +720,11 @@
         url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest_No_Resolve.yaml
         path: ./rule/Speedtest.yaml
     # 主要代理
-      Proxy: # 🚀 主要代理
+      Proxy: # 🚀 默认代理
         <<: *classical
         url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Classical_No_Resolve.yaml
         path: ./rule/Proxy.yaml
-      Global: # 🚀 主要代理
+      Global: # 🚀 默认代理
         <<: *classical
         url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical_No_Resolve.yaml
         path: ./rule/Global.yaml
