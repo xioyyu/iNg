@@ -1,4 +1,4 @@
-# 修改时间：2024-10-15
+# 修改时间：2024-10-17
 # by GitHub@sunfing Telegram@https://t.me/huojiweiguoba_wiki
 # 仓库地址：https://github.com/sunfing/iNg/blob/main/Profiles/YamlProfile
 
@@ -39,6 +39,10 @@
       # override:                 # 覆写节点内容
       #   additional-prefix: '节点前缀'
       #   additional-suffix: '节点后缀'
+
+# 本地代理集 # 该项仅用于远程资源首次下载需要挂梯时，日常使用可删除或注释本项，并同步修改“🍟 节点集合”
+  # proxies:
+  #   - { name: '🇺🇳 备用 01', type: xxx, server: xxx, port: xxx, password: xxx, udp: true, sni: xxx }
 
 # ###### ###### ###### ###### ###### ###### 节点组锚点 ###### ###### ###### ###### ###### ######
   anchor_node_groups_sele: &anchor_node_groups_sele # 节点组 - 手动切换规则集配置
@@ -252,37 +256,9 @@
     # 节点集合节点组 - 手动切换
       - name: 🍟 节点集合
         <<: *anchor_node_groups_sele
-
-    # 代理提供者节点组 - 手动切换 # 以下策略组非必需且没有在上述任意策略组中被引用，仅用做查看每个代理提供者的节点情况，可直接 注释/删除/替换为筛选自己代理提供者/加入任意策略组使用
-      - name: 🛫 PRE节点
-        <<: *anchor_node_groups_sele
-        filter: (?i)(?=.*(\b(pre)\b))
-        # hidden: true
-
-      - name: 🛫 SHN节点
-        <<: *anchor_node_groups_sele
-        filter: (?i)(?=.*(\b(shn)\b))
-        # hidden: true
-
-      - name: 🛫 ACA节点
-        <<: *anchor_node_groups_sele
-        filter: (?i)(?=.*(\b(aca)\b))
-        # hidden: true
-
-      - name: 🛫 SDK节点
-        <<: *anchor_node_groups_sele
-        filter: (?i)(?=.*(\b(sdk)\b))
-        # hidden: true
-
-      - name: 🛫 SPC节点
-        <<: *anchor_node_groups_sele
-        filter: (?i)(?=.*(\b(spc)\b))
-        # hidden: true
-
-      - name: 🛫 NAU节点
-        <<: *anchor_node_groups_sele
-        filter: (?i)(?=.*(\b(nau)\b))
-        # hidden: true
+      #   type: select    # 本地代理集
+      #   proxies:        # 本地代理集
+      #     - 🇺🇳 备用 01  # 本地代理集
 
 # 规则
   rules:
