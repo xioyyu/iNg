@@ -1,5 +1,5 @@
-# 修改时间：2024-10-26
-# 加入频道：https://t.me/ikunctrl_channel
+# 修改时间：2024-11-02
+# 加入频道：https://t.me/tds_chl
 # 仓库地址：https://github.com/sunfing/iNg/blob/main/Profiles/ConfProfile
 
 [General]
@@ -81,7 +81,7 @@ udp-policy-not-supported-behaviour = REJECT
 # include-all-proxies = 0   含义：控制是否在订阅中包含所有代理。0 表示不包含所有代理，可能只包含某些特定类型的代理或规则。1 表示包含所有代理，无论类型。
 # persistent = 1            含义：控制订阅是否持久化。0 表示订阅内容不会持久化，可能在某些情况下会被清除。1 表示订阅内容会持久化，确保在应用重启或网络切换时保持不变。
 # >>> 策略组
-· 默认代理  = select, · 全球直连, · 全球拦截, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Surge.png
+· 默认代理  = select, · 全球直连, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Surge.png
 · 媒体中心  = select, · 全球直连, · 观影节点, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Emby.png
 · 即时通讯  = select, · 全球直连, · 默认代理, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Speaker.png
 · 语言模型  = select, · 全球直连, · 默认代理, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/AI.png
