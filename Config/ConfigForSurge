@@ -92,10 +92,10 @@ udp-policy-not-supported-behaviour = REJECT
 · 苹果新闻  = select, · 全球直连, · 新闻社交, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/AppleNews.png
 · 推特社交  = select, · 全球直连, · 新闻社交, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Twitter.png
 · 晒照片墙  = select, · 全球直连, · 新闻社交, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Instagram.png
-· Claude    = select, · 全球直连, · 语言模型, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/ClaudeAI.png
 · ChatGPT   = select, · 全球直连, · 语言模型, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/OpenAI.png
-· Copilot   = select, · 全球直连, · 语言模型, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Copilot.png
+· Claude    = select, · 全球直连, · 语言模型, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/ClaudeAI.png
 · Gemini    = select, · 全球直连, · 语言模型, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Gemini.png
+· Copilot   = select, · 全球直连, · 语言模型, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Copilot.png
 · 声田音乐  = select, · 全球直连, · 流媒体集, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Spotify.png
 · 油管音乐  = select, · 全球直连, · 流媒体集, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/YouTubeMusic.png
 # · Bilibili      = select, · 全球直连, · 流媒体集, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Bilibili.png
@@ -150,7 +150,6 @@ RULE-SET, https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Proxy/A_Proxy
 RULE-SET, https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Direct/A_Direct.list, · 全球直连, update-interval=86400
 #
 RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/WeChat/WeChat.list, · 全球直连, update-interval=86400
-# RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GoogleVoice/GoogleVoice.list, · 美国手动, update-interval=86400
 RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Telegram/Telegram.list, · 电报消息, update-interval=86400
 RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Whatsapp/Whatsapp.list, · 即时通讯, update-interval=86400
 RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Discord/Discord.list, · 语音社群, update-interval=86400
@@ -159,10 +158,10 @@ RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/
 RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Twitter/Twitter.list, · 推特社交, update-interval=86400
 RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Instagram/Instagram.list, · 晒照片墙, update-interval=86400
 #
-RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Claude/Claude.list, · Claude, update-interval=86400
 RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI.list, · ChatGPT, update-interval=86400
-RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Copilot/Copilot.list, · Copilot, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Claude/Claude.list, · Claude, update-interval=86400
 RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Gemini/Gemini.list, · Gemini, update-interval=86400
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Copilot/Copilot.list, · Copilot, update-interval=86400
 #
 RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AppleMusic/AppleMusic.list, · 全球直连, update-interval=86400
 RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Spotify/Spotify.list, · 声田音乐, update-interval=86400
