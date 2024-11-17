@@ -1,6 +1,6 @@
 # 订阅频道：https://t.me/ing_chl
 
-# 初次使用建议详细阅读注释内容并修改必要的内容如：在“代理提供者”填写自己的订阅链接
+# 初次使用建议详细阅读注释内容并修改必要的内容，如：在“代理提供者”填写自己的订阅链接
 
 # 代理提供者
   proxy-providers:
@@ -420,15 +420,15 @@
   # “🎥 奈飞视频 | 🏰 迪士尼加”仅 策略组 已被注释，目前默认“Netflix,🎬 流媒体集 | Disney,🎬 流媒体集”
   # “A_”开头的规则个性化较强，请按照自身需求更改/删除，如果使用这些规则时发现不满足个人需求可加入频道关联群组提出需求
   rules:
-    - IP-CIDR,198.18.0.1/16,REJECT,no-resolve     # 防止 fake-ip 模式下网络回环
+    - IP-CIDR,198.18.0.1/16,REJECT,no-resolve # 防止 fake-ip 模式下网络回环
     - RULE-SET,Lan,🎯 全球直连
     - RULE-SET,UnBan,🎯 全球直连
     # - RULE-SET,BanAD,🚫 全球拦截
     # - RULE-SET,BanProgramAD,🚫 全球拦截
-    - RULE-SET,A_MediaHub,📀 媒体中心             # Emby/Jellyfin
-    - RULE-SET,A_Proxy,🚀 默认代理                # 自定义代理
-    - RULE-SET,A_Direct,🎯 全球直连               # 自定义直连
-    - IP-CIDR,95.161.76.100/31,REJECT,no-resolve  # 缓解电报后台状态下被重新激活后出现转圈连接中的情况（实验性）
+    - RULE-SET,A_Reject,🚫 全球拦截           # 自定义拦截
+    - RULE-SET,A_Proxy,🚀 默认代理            # 自定义代理
+    - RULE-SET,A_Direct,🎯 全球直连           # 自定义直连
+    - RULE-SET,A_MediaHub,📀 媒体中心         # Emby/Jellyfin
     - RULE-SET,Telegram,📲 电报消息
     - RULE-SET,Whatsapp,💬 即时通讯
     - RULE-SET,Discord,🎙 语音社群
@@ -504,10 +504,10 @@
     #   <<: *classical
     #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml
     #   path: ./rule/BanProgramAD.yaml
-    A_MediaHub: # 📀 媒体中心
+    A_Reject: # 🚫 全球拦截
       <<: *classical
-      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/MediaHub/A_MediaHub.yaml
-      path: ./rule/A_MediaHub.yaml
+      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Reject/A_Reject.yaml
+      path: ./rule/A_Reject.yaml
     A_Proxy: # 🚀 默认代理
       <<: *classical
       url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Proxy/A_Proxy.yaml
@@ -516,6 +516,10 @@
       <<: *classical
       url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Direct/A_Direct.yaml
       path: ./rule/A_Direct.yaml
+    A_MediaHub: # 📀 媒体中心
+      <<: *classical
+      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/MediaHub/A_MediaHub.yaml
+      path: ./rule/A_MediaHub.yaml
     Telegram: # 📲 电报消息
       <<: *classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram_No_Resolve.yaml
