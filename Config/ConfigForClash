@@ -1,43 +1,28 @@
 # 订阅频道：https://t.me/ing_chl
-
+# 本配置文件携带大量的注释，尽可能解释全部代码内容，其余不懂地方建议看官方文档 https://wiki.metacubex.one/
 # 初次使用建议详细阅读注释内容并修改必要的内容，如：在“代理提供者”填写自己的订阅链接
 
-# 代理提供者
-  proxy-providers:
-    𝑵𝒐𝒅𝒆𝒔: # 代理提供者名称，自定义名称注意全部替换，更多代理提供者自行复制粘贴添加，并同步修改“节点组锚点” # 花体英文转换器：https://www.iamwawa.cn/fontchanger.html
-      type: http ###### 👇👇👇 订阅链接 👇👇👇 ######
-      url: xxx
-      interval: 86400           # 单位为秒，定时更新代理列表，24 小时一次
-      path: ./proxy/Nodes.yaml  # 可选，文件路径，不可重复，不填写时会使用 url 的 MD5 作为此文件的文件名
-      health-check:             # 检测代理可用性
-        enable: true
-        url: http://www.gstatic.com/generate_204
-        interval: 300           # 单位为秒，定时健康检查，5 分钟一次
-        timeout: 5000           # 单位为毫秒，健康检查超时时间，大于 5 秒节点显示超时
-      # override:                 # 覆写节点内容
-      #   additional-prefix: "节点前缀"
-      #   additional-suffix: "节点后缀"
+# 锚点定义集
+  # 锚点一般处于整个配置文件最上面，遵循 Yaml 配置文件从上往下的读取顺序，锚点必须先定义再引用
+  ###### ###### ###### ###### ###### ###### 代理提供者锚点 ###### ###### ###### ###### ###### ######
+  anchor_proxy_providers: &anchor_proxy_providers
+    type: http
+    interval: 86400 # 单位为秒，定时更新代理列表，24 小时一次
+    health-check:   # 检测代理可用性
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300 # 单位为秒，定时健康检查，5 分钟一次
+      timeout: 5000 # 单位为毫秒，健康检查超时时间，大于 5 秒节点显示超时
+    filter: (?i)^(?!.*(email|expire|test|total|traffic|use|used|备用|不推荐|测试|到期|订阅|工单|官方|官网|官址|过期|获取|机场|剩余|客服|联系|流量|群|失联|套餐|网址|网站|下次|学术|邮箱|已用|有效|版本))
 
-# 本地代理集 # 该项仅用于远程资源首次下载需要挂梯时，日常使用可删除或注释本项，并同步修改“🍟 节点集合”
-  # proxies:
-  #   - { xxx }
+  ###### ###### ###### ###### ###### ###### 规则提供者锚点 ###### ###### ###### ###### ###### ######
+  anchor_rule_providers_classical: &anchor_rule_providers_classical {type: http, behavior: classical, interval: 86400, format: yaml}  # 经典规则集配置
 
-# ###### ###### ###### ###### ###### ###### 节点组锚点 ###### ###### ###### ###### ###### ######
-  anchor_node_groups_sele: &anchor_node_groups_sele # 节点组 - 手动切换规则集配置
-    type: select
-    use:
-      - 𝑵𝒐𝒅𝒆𝒔
+  anchor_rule_providers_domain: &anchor_rule_providers_domain {type: http, behavior: domain, interval: 86400, format: yaml}           # 域名规则集配置
 
-  anchor_node_groups_auto: &anchor_node_groups_auto # 节点组 - 自动选择规则集配置
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300               # 单位为秒，定时健康检查，5 分钟一次
-    tolerance: 20               # 单位为毫秒，节点切换容差
-    use:
-      - 𝑵𝒐𝒅𝒆𝒔
-    # hidden: true                # 隐藏该策略组展示，所使用的前端需适配
+  anchor_rule_providers_ipcidr: &anchor_rule_providers_ipcidr {type: http, behavior: ipcidr, interval: 86400, format: yaml}           # IP-CIDR 规则集配置
 
-# ###### ###### ###### ###### ###### ###### 策略组锚点 ###### ###### ###### ###### ###### ######
+  ###### ###### ###### ###### ###### ###### 策 略 组 锚 点 ###### ###### ###### ###### ###### ######
   anchor_policy_groups_default: &anchor_policy_groups_default             # 策略组 - 默认规则集配置
     type: select
     proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🍟 节点集合]
@@ -62,10 +47,47 @@
     type: select
     proxies: [🎯 全球直连, 💽 观影节点, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🍟 节点集合]
 
-# ###### ###### ###### ###### ###### ###### 规则提供者锚点 ###### ###### ###### ###### ###### ######
-  classical: &classical {type: http, behavior: classical, interval: 86400, format: yaml}  # 经典规则集配置
-  domain: &domain {type: http, behavior: domain, interval: 86400, format: yaml}           # 域名规则集配置
-  ipcidr: &ipcidr {type: http, behavior: ipcidr, interval: 86400, format: yaml}           # IP-CIDR 规则集配置
+  ###### ###### ###### ###### ###### ###### 节 点 组 锚 点 ###### ###### ###### ###### ###### ######
+  anchor_node_groups_selector: &anchor_node_groups_selector # 节点组 - 手动切换规则集配置
+    type: select
+    use:
+      - 𝑵𝒐𝒅𝒆𝒔
+      # - 𝑬𝒙𝒂𝒎𝒑𝒍𝒆
+
+  anchor_node_groups_urltest: &anchor_node_groups_urltest   # 节点组 - 自动选择规则集配置
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300 # 单位为秒，定时健康检查，5 分钟一次
+    tolerance: 20 # 单位为毫秒，节点切换容差
+    use:
+      - 𝑵𝒐𝒅𝒆𝒔
+      # - 𝑬𝒙𝒂𝒎𝒑𝒍𝒆
+    # hidden: true  # 隐藏该策略组展示，所使用的前端需适配
+
+# 代理提供者
+  # 要添加更多代理提供者（名字不能重复）自行复制下面的“Example”示例代码粘贴添加，并同步修改“节点组锚点”
+  # 花体英文转换器：https://www.iamwawa.cn/fontchanger.html，配置中“𝑵𝒐𝒅𝒆𝒔”使用的是转换后的第三种字体
+  proxy-providers:
+    𝑵𝒐𝒅𝒆𝒔: # 代理提供者名称
+      <<: *anchor_proxy_providers ###### 👇👇👇 订阅链接 👇👇👇 ######
+      url: xxx
+      path: ./proxy_providers/Nodes.yaml  # 可选文件路径，不可重复，不同的代理提供者请自行设置不同的路径，“path”被注释掉时会使用 url 的 MD5 作为此文件的文件名
+      # override:                         # 覆写节点内容，前缀/后缀二选一，除此之外还推荐使用 Sub Store(https://t.me/ing_chl/29) 订阅管理工具可对节点进行更多个性化修改
+      #   additional-prefix: "节点前缀"
+      #   additional-suffix: "节点后缀"
+
+    # 𝑬𝒙𝒂𝒎𝒑𝒍𝒆:
+    #   <<: *anchor_proxy_providers
+    #   url: https://exampleurl.com
+    #   path: ./proxy_providers/Example.yaml
+    #   override:
+    #     additional-prefix: "Example"
+    #     additional-suffix: "Example"
+
+# 本地代理集
+  # 该项仅用于远程资源首次下载需要挂梯时，可自行添加一个本地代理节点利用该节点下载更新订阅和规则，日常使用可删除或注释本项，并同步修改“🍟 节点集合”
+  # proxies:
+  #   - { xxx }
 
 # 基础配置
   port: 7890        # HTTP(S) 代理端口
@@ -110,7 +132,7 @@
     fake-ip-range: 198.18.0.1/16    # fake-ip/tun 模式下的 IP 段
     fake-ip-filter-mode: blacklist  # 匹配模式 blacklist/whitelist，默认 blacklist 匹配成功则不返回 fake-ip，whitelist 匹配成功返回 fake-ip
     fake-ip-filter:                 # fake-ip 过滤，blacklist 模式下以下地址不会下发 fake-ip 映射用于连接即使用真实 IP 连接
-      ["geosite:cn", "+.lan", "+.local", "+.localhost", "+.direct", "+.example", "+.invalid", "+.test", "+.home.arpa", "time.*.com", "time.*.gov", "time.*.edu.cn", "time.*.apple.com", "time-ios.apple.com", "time1.*.com", "time2.*.com", "time3.*.com", "time4.*.com", "time5.*.com", time6.*.com", "time7.*.com", "ntp.*.com", "ntp1.*.com", "ntp2.*.com", "ntp3.*.com", "ntp4.*.com", "ntp5.*.com", "ntp6.*.com", "ntp7.*.com", "+.time.edu.cn", "+.ntp.org.cn", "+.pool.ntp.org", "time1.cloud.tencent.com", "+.msftconnecttest.com", "+.msftncsi.com", "stun.*.*", "stun.*.*.*", "+.stun.*.*", "+.stun.*.*.*", "+.stun.*.*.*.*", "+.stun.*.*.*.*.*"]
+      ["geosite:cn", "+.lan", "+.local", "+.localhost", "+.direct", "+.example", "+.invalid", "+.test", "+.home.arpa", "time.*.com", "time.*.gov", "time.*.edu.cn", "time.*.apple.com", "time-ios.apple.com", "time1.*.com", "time2.*.com", "time3.*.com", "time4.*.com", "time5.*.com", "time6.*.com", "time7.*.com", "ntp.*.com", "ntp1.*.com", "ntp2.*.com", "ntp3.*.com", "ntp4.*.com", "ntp5.*.com", "ntp6.*.com", "ntp7.*.com", "+.time.edu.cn", "+.ntp.org.cn", "+.pool.ntp.org", "time1.cloud.tencent.com", "+.msftconnecttest.com", "+.msftncsi.com", "stun.*.*", "stun.*.*.*", "+.stun.*.*", "+.stun.*.*.*", "+.stun.*.*.*.*", "+.stun.*.*.*.*.*"]
     default-nameserver:       # 只用于解析 nameserver 中域名格式的 DNS 服务器，可使用 UDP/DoT/DoH，只能使用纯 IP 地址
       - 223.5.5.5
       - 114.114.114.114
@@ -172,9 +194,9 @@
     # auto-redirect: true         # 仅支持 Linux，自动配置 iptables/nftables 以重定向 TCP 连接
     auto-detect-interface: true # 自动选择流量出口接口，多出口网卡同时连接的设备建议手动指定出口网卡
 
-# 新版 METACUBEXD 面板和部分 Clash 类客户端支持 Icon，Icon 和 Emoji 共用/仅用一种 请自行选择
-# 仅使用 Icon 请自行使用频道中“正则与脚本（https://t.me/ing_chl/30）”的“匹配旗帜 Emoji 以及其他所有类型的 Emoji，并包括后面的空格（如果有）”该正则表达式删除配置文件中的所有 Emoji / 仅使用 Emoji 请自行注释/删除所有的“icon: exampleurl.com”等内容
-# 策略/节点 代理组
+# 代理组
+  # 新版 METACUBEXD 面板和部分 Clash 类客户端支持 Icon，Icon 和 Emoji 共用/仅用一种 请自行选择
+  # 仅使用 Icon 请自行使用频道中“正则与脚本(https://t.me/ing_chl/30)”的“匹配旗帜 Emoji 以及其他所有类型的 Emoji，并包括后面的空格（如果有）”该正则表达式删除配置文件中的所有 Emoji / 仅使用 Emoji 请自行注释/删除所有的 icon: https://exampleurl.com 等内容
   proxy-groups:
     # 大类速选策略组
       - name: 🚀 默认代理
@@ -332,80 +354,80 @@
 
     # 自定义手动切换节点组
       - name: 💽 观影节点
-        <<: *anchor_node_groups_sele
+        <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(emby))          # 匹配关键字
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/CD.png
 
       - name: ❤ 省流节点
-        <<: *anchor_node_groups_sele
+        <<: *anchor_node_groups_selector
         filter: (?i)^(?!.*(emby)).*(0\.)  # 过滤前者并匹配后者
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Heart.png
 
     # 国家或地区手动切换节点组
       - name: 🇭🇰 香港手动
-        <<: *anchor_node_groups_sele
+        <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 
       - name: 🇹🇼 台湾手动
-        <<: *anchor_node_groups_sele
+        <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
 
       - name: 🇸🇬 狮城手动
-        <<: *anchor_node_groups_sele
+        <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(🇸🇬|新加坡|\b(sg)\b|singapore))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 
       - name: 🇯🇵 日本手动
-        <<: *anchor_node_groups_sele
+        <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(🇯🇵|日本|\b(jp)\b|japan))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 
       - name: 🇺🇸 美国手动
-        <<: *anchor_node_groups_sele
+        <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 
       # - name: 🇲🇴 澳门手动
-      #   <<: *anchor_node_groups_sele
+      #   <<: *anchor_node_groups_selector
       #   filter: (?i)(?=.*(🇲🇴|澳门|\b(mo)\b|macao))
       #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Macao.png
 
       # - name: 🇷🇺 俄国手动
-      #   <<: *anchor_node_groups_sele
+      #   <<: *anchor_node_groups_selector
       #   filter: (?i)(?=.*(🇷🇺|俄罗斯|\b(ru)\b|russia))
       #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Russia.png
 
     # 国家或地区自动选择节点组
       - name: 🇭🇰 香港自动
-        <<: *anchor_node_groups_auto
+        <<: *anchor_node_groups_urltest
         filter: (?i)^(?!.*(emby|fam|家宽)).*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 
       - name: 🇹🇼 台湾自动
-        <<: *anchor_node_groups_auto
+        <<: *anchor_node_groups_urltest
         filter: (?i)^(?!.*(emby|fam|家宽)).*(🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
 
       - name: 🇸🇬 狮城自动
-        <<: *anchor_node_groups_auto
+        <<: *anchor_node_groups_urltest
         filter: (?i)^(?!.*(emby|fam|家宽)).*(🇸🇬|新加坡|\b(sg)\b|singapore)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 
       - name: 🇯🇵 日本自动
-        <<: *anchor_node_groups_auto
+        <<: *anchor_node_groups_urltest
         filter: (?i)^(?!.*(emby|fam|家宽)).*(🇯🇵|日本|\b(jp)\b|japan)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 
       - name: 🇺🇸 美国自动
-        <<: *anchor_node_groups_auto
+        <<: *anchor_node_groups_urltest
         filter: (?i)^(?!.*(emby|fam|家宽|starlink)).*(🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 
     # 节点集合节点组
       - name: 🍟 节点集合
-        <<: *anchor_node_groups_sele
+        <<: *anchor_node_groups_selector
         type: select
         proxies:
           - DIRECT
@@ -489,250 +511,250 @@
 # 规则提供者
   rule-providers:
     Lan: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan_No_Resolve.yaml
-      path: ./rule/Lan.yaml
+      path: ./rule_providers/Lan.yaml
     UnBan: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml
-      path: ./rule/UnBan.yaml
+      path: ./rule_providers/UnBan.yaml
     # BanAD: # 🚫 全球拦截
-    #   <<: *classical
+    #   <<: *anchor_rule_providers_classical
     #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml
-    #   path: ./rule/BanAD.yaml
+    #   path: ./rule_providers/BanAD.yaml
     # BanProgramAD: # 🚫 全球拦截
-    #   <<: *classical
+    #   <<: *anchor_rule_providers_classical
     #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml
-    #   path: ./rule/BanProgramAD.yaml
+    #   path: ./rule_providers/BanProgramAD.yaml
     A_Reject: # 🚫 全球拦截
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Reject/A_Reject.yaml
-      path: ./rule/A_Reject.yaml
+      path: ./rule_providers/A_Reject.yaml
     A_Proxy: # 🚀 默认代理
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Proxy/A_Proxy.yaml
-      path: ./rule/A_Proxy.yaml
+      path: ./rule_providers/A_Proxy.yaml
     A_Direct: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Direct/A_Direct.yaml
-      path: ./rule/A_Direct.yaml
+      path: ./rule_providers/A_Direct.yaml
     A_MediaHub: # 📀 媒体中心
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/MediaHub/A_MediaHub.yaml
-      path: ./rule/A_MediaHub.yaml
+      path: ./rule_providers/A_MediaHub.yaml
     Telegram: # 📲 电报消息
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram_No_Resolve.yaml
-      path: ./rule/Telegram.yaml
+      path: ./rule_providers/Telegram.yaml
     Whatsapp: # 💬 即时通讯
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Whatsapp/Whatsapp_No_Resolve.yaml
-      path: ./rule/Whatsapp.yaml
+      path: ./rule_providers/Whatsapp.yaml
     Discord: # 🎙 语音社群
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord_No_Resolve.yaml
-      path: ./rule/Discord.yaml
+      path: ./rule_providers/Discord.yaml
     WeChat: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/WeChat/WeChat_No_Resolve.yaml
-      path: ./rule/WeChat.yaml
+      path: ./rule_providers/WeChat.yaml
     AppleNews: # 🍎 苹果新闻
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AppleNews/AppleNews_No_Resolve.yaml
-      path: ./rule/AppleNews.yaml
+      path: ./rule_providers/AppleNews.yaml
     Twitter: # 📮 推特社交
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter_No_Resolve.yaml
-      path: ./rule/Twitter.yaml
+      path: ./rule_providers/Twitter.yaml
     Instagram: # 🌈 晒照片墙
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram_No_Resolve.yaml
-      path: ./rule/Instagram.yaml
+      path: ./rule_providers/Instagram.yaml
     OpenAI: # ✨ ChatGPT
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml
-      path: ./rule/OpenAI.yaml
+      path: ./rule_providers/OpenAI.yaml
     Claude: # ✨ Claude
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude_No_Resolve.yaml
-      path: ./rule/Claude.yaml
+      path: ./rule_providers/Claude.yaml
     Gemini: # ✨ Gemini
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini_No_Resolve.yaml
-      path: ./rule/Gemini.yaml
+      path: ./rule_providers/Gemini.yaml
     Copilot: # ✨ Copilot
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot_No_Resolve.yaml
-      path: ./rule/Copilot.yaml
+      path: ./rule_providers/Copilot.yaml
     AppleMusic: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AppleMusic/AppleMusic_No_Resolve.yaml
-      path: ./rule/AppleMusic.yaml
+      path: ./rule_providers/AppleMusic.yaml
     Spotify: # 🎶 声田音乐
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify_No_Resolve.yaml
-      path: ./rule/Spotify.yaml
+      path: ./rule_providers/Spotify.yaml
     YouTubeMusic: # 🎶 油管音乐
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTubeMusic/YouTubeMusic_No_Resolve.yaml
-      path: ./rule/YouTubeMusic.yaml
+      path: ./rule_providers/YouTubeMusic.yaml
     # BiliBiliIntl: # 🧸 哔哩哔哩
-    #   <<: *classical
+    #   <<: *anchor_rule_providers_classical
     #   url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBiliIntl/BiliBiliIntl_No_Resolve.yaml
-    #   path: ./rule/BiliBiliIntl.yaml
+    #   path: ./rule_providers/BiliBiliIntl.yaml
     # Bilibili: # 🧸 哔哩哔哩
-    #   <<: *classical
+    #   <<: *anchor_rule_providers_classical
     #   url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili_No_Resolve.yaml
-    #   path: ./rule/Bilibili.yaml
+    #   path: ./rule_providers/Bilibili.yaml
     TikTok: # 📸 抖音国际
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok_No_Resolve.yaml
-      path: ./rule/TikTok.yaml
+      path: ./rule_providers/TikTok.yaml
     YouTube: # 🎀 油管视频
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube_No_Resolve.yaml
-      path: ./rule/YouTube.yaml
+      path: ./rule_providers/YouTube.yaml
     Twitch: # 👾 推趣直播
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitch/Twitch_No_Resolve.yaml
-      path: ./rule/Twitch.yaml
+      path: ./rule_providers/Twitch.yaml
     AppleTV: # 📺 苹果电视
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AppleTV/AppleTV_No_Resolve.yaml
-      path: ./rule/AppleTV.yaml
+      path: ./rule_providers/AppleTV.yaml
     Netflix: # 🎬 流媒体集
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix_Classical_No_Resolve.yaml
-      path: ./rule/Netflix.yaml
+      path: ./rule_providers/Netflix.yaml
     Disney: # 🎬 流媒体集
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney_No_Resolve.yaml
-      path: ./rule/Disney.yaml
+      path: ./rule_providers/Disney.yaml
     PrimeVideo: # 🎬 流媒体集
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrimeVideo/PrimeVideo_No_Resolve.yaml
-      path: ./rule/PrimeVideo.yaml
+      path: ./rule_providers/PrimeVideo.yaml
     HBOHK: # 🎬 流媒体集
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HBOHK/HBOHK_No_Resolve.yaml
-      path: ./rule/HBOHK.yaml
+      path: ./rule_providers/HBOHK.yaml
     HBOUSA: # 🎬 流媒体集
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HBOUSA/HBOUSA_No_Resolve.yaml
-      path: ./rule/HBOUSA.yaml
+      path: ./rule_providers/HBOUSA.yaml
     GlobalMedia: # 🎬 流媒体集
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical_No_Resolve.yaml
-      path: ./rule/GlobalMedia.yaml
+      path: ./rule_providers/GlobalMedia.yaml
     ChinaMedia: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMedia/ChinaMedia_No_Resolve.yaml
-      path: ./rule/ChinaMedia.yaml
+      path: ./rule_providers/ChinaMedia.yaml
     GoogleFCM: # 🚀 默认代理
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleFCM/GoogleFCM_No_Resolve.yaml
-      path: ./rule/GoogleFCM.yaml
+      path: ./rule_providers/GoogleFCM.yaml
     Tencent: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Tencent/Tencent_No_Resolve.yaml
-      path: ./rule/Tencent.yaml
+      path: ./rule_providers/Tencent.yaml
     GitHub: # 🎓 开源托管
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub_No_Resolve.yaml
-      path: ./rule/GitHub.yaml
+      path: ./rule_providers/GitHub.yaml
     Cloudflarecn: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Cloudflarecn/Cloudflarecn_No_Resolve.yaml
-      path: ./rule/Cloudflarecn.yaml
+      path: ./rule_providers/Cloudflarecn.yaml
     Cloudflare: # 🥟 云端防护
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Cloudflare/Cloudflare_No_Resolve.yaml
-      path: ./rule/Cloudflare.yaml
+      path: ./rule_providers/Cloudflare.yaml
     Apple: # 🍎 苹果服务
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical_No_Resolve.yaml
-      path: ./rule/Apple.yaml
+      path: ./rule_providers/Apple.yaml
     OneDrive: # 📂 下载服务
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive_No_Resolve.yaml
-      path: ./rule/OneDrive.yaml
+      path: ./rule_providers/OneDrive.yaml
     Microsoft: # 🍀 微软服务
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft_No_Resolve.yaml
-      path: ./rule/Microsoft.yaml
+      path: ./rule_providers/Microsoft.yaml
     GoogleDrive: # 📂 下载服务
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleDrive/GoogleDrive_No_Resolve.yaml
-      path: ./rule/GoogleDrive.yaml
+      path: ./rule_providers/GoogleDrive.yaml
     Google: # ❄ 谷歌服务
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google_No_Resolve.yaml
-      path: ./rule/Google.yaml
+      path: ./rule_providers/Google.yaml
     SteamCN: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN_No_Resolve.yaml
-      path: ./rule/SteamCN.yaml
+      path: ./rule_providers/SteamCN.yaml
     GameDownloadCN: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN_No_Resolve.yaml
-      path: ./rule/GameDownloadCN.yaml
+      path: ./rule_providers/GameDownloadCN.yaml
     GameDownload: # 📂 下载服务
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownload/GameDownload_No_Resolve.yaml
-      path: ./rule/GameDownload.yaml
+      path: ./rule_providers/GameDownload.yaml
     Steam: # 🎮 游戏服务
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam_No_Resolve.yaml
-      path: ./rule/Steam.yaml
+      path: ./rule_providers/Steam.yaml
     Epic: # 🎮 游戏服务
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic_No_Resolve.yaml
-      path: ./rule/Epic.yaml
+      path: ./rule_providers/Epic.yaml
     Origin: # 🎮 游戏服务
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Origin/Origin_No_Resolve.yaml
-      path: ./rule/Origin.yaml
+      path: ./rule_providers/Origin.yaml
     Sony: # 🎮 游戏服务
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Sony/Sony_No_Resolve.yaml
-      path: ./rule/Sony.yaml
+      path: ./rule_providers/Sony.yaml
     Nintendo: # 🎮 游戏服务
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nintendo/Nintendo_No_Resolve.yaml
-      path: ./rule/Nintendo.yaml
+      path: ./rule_providers/Nintendo.yaml
     Game: # 🎮 游戏服务
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml
-      path: ./rule/Game.yaml
+      path: ./rule_providers/Game.yaml
     Download: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download_No_Resolve.yaml
-      path: ./rule/Download.yaml
+      path: ./rule_providers/Download.yaml
     PrivateTracker: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker_No_Resolve.yaml
-      path: ./rule/PrivateTracker.yaml
+      path: ./rule_providers/PrivateTracker.yaml
     Speedtest: # ⚡ 速度测试
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest_No_Resolve.yaml
-      path: ./rule/Speedtest.yaml
+      path: ./rule_providers/Speedtest.yaml
     Proxy: # 🚀 默认代理
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Classical_No_Resolve.yaml
-      path: ./rule/Proxy.yaml
+      path: ./rule_providers/Proxy.yaml
     Global: # 🚀 默认代理
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical_No_Resolve.yaml
-      path: ./rule/Global.yaml
+      path: ./rule_providers/Global.yaml
     China: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China_Classical_No_Resolve.yaml
-      path: ./rule/China.yaml
+      path: ./rule_providers/China.yaml
     ChinaIPs: # 🎯 全球直连
-      <<: *classical
+      <<: *anchor_rule_providers_classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaIPs/ChinaIPs_Classical_No_Resolve.yaml
-      path: ./rule/ChinaIPs.yaml
+      path: ./rule_providers/ChinaIPs.yaml
     # geolocation-!cn: # 🐟 漏网之鱼
-    #   <<: *domain
+    #   <<: *anchor_rule_providers_domain
     #   url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.yaml
-    #   path: ./rule/geolocation-!cn.yaml
+    #   path: ./rule_providers/geolocation-!cn.yaml
