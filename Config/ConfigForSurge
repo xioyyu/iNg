@@ -1,12 +1,12 @@
 # 订阅频道：https://t.me/ing_chl
-
+# 本配置文件携带大量的注释，尽可能解释全部代码内容，其余不懂地方建议看官方文档 https://manual.nssurge.com/book/understanding-surge/cn/
 # 初次使用建议详细阅读注释内容并修改必要的内容，如：在“节点集合节点组”填写自己的订阅链接
 
 [General]
 # >>> 日志等级
 loglevel = notify
 # >>> 跳过代理 # 适用于 HTTP/HTTPS 和其他协议请求，主要针对代理流量，对所有适用的请求生效，但不影响 TUN 接口的流量处理
-skip-proxy = localhost, *.local, injections.adguard.org, local.adguard.org, captive.apple.com, guzzoni.apple.com, 0.0.0.0/8, 10.0.0.0/8, 17.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.168.0.0/16, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 240.0.0.0/4, 255.255.255.255/32
+skip-proxy = "localhost", "*.local", "injections.adguard.org", "local.adguard.org", "captive.apple.com", "guzzoni.apple.com", "0.0.0.0/8", "10.0.0.0/8", "17.0.0.0/8", "100.64.0.0/10", "127.0.0.0/8", "169.254.0.0/16", "172.16.0.0/12", "192.0.0.0/24", "192.0.2.0/24", "192.168.0.0/16", "192.88.99.0/24", "198.18.0.0/15", "198.51.100.0/24", "203.0.113.0/24", "224.0.0.0/4", "240.0.0.0/4", "255.255.255.255/32"
 # >>> 自定义 DNS 服务器
 dns-server = 223.5.5.5, 114.114.114.114, 8.8.8.8, 1.1.1.1
 # >>> 加密的 DNS 服务器 # 同时支持 DoH (DNS over HTTPS) 与 DoT (DNS over TLS)，非必要不启用
@@ -16,7 +16,7 @@ hijack-dns = 8.8.8.8:53, 8.8.4.4:53
 # >>> 从 /etc/hosts 读取 DNS 记录
 read-etc-hosts = true
 # >>> 返回真实 IP
-always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com*.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com, *.battlenet.com.cn, *.battlenet.com, *.blzstatic.cn, *.battle.net
+always-real-ip = "+.lan", "+.local", "+.localhost", "+.direct", "+.example", "+.invalid", "+.test", "+.home.arpa", "time.*.com", "time.*.gov", "time.*.edu.cn", "time.*.apple.com", "time-ios.apple.com", "time1.*.com", "time2.*.com", "time3.*.com", "time4.*.com", "time5.*.com", "time6.*.com", "time7.*.com", "ntp.*.com", "ntp1.*.com", "ntp2.*.com", "ntp3.*.com", "ntp4.*.com", "ntp5.*.com", "ntp6.*.com", "ntp7.*.com", "+.time.edu.cn", "+.ntp.org.cn", "+.pool.ntp.org", "time1.cloud.tencent.com", "+.msftconnecttest.com", "+.msftncsi.com", "stun.*.*", "stun.*.*.*", "+.stun.*.*", "+.stun.*.*.*", "+.stun.*.*.*.*", "+.stun.*.*.*.*.*"
 # >>> Internet 测试 URL # 国内测速 URL
 internet-test-url = http://www.baidu.com
 # >>> 代理测速 URL
