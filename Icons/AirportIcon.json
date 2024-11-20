@@ -1,9 +1,9 @@
 {
   "name":"Airport Icon", "description":"订阅频道：https://t.me/ing_chl", 
   "icons":[
-    {"name":"𝒃𝒊奇堡的厨子", "url":"https:\/\/raw.githubusercontent.com\/sunfing\/iNg\/main\/Icons\/AirportIcons\/000ingchl.png"},
-    {"name":"001LaoWang", "url":"https:\/\/raw.githubusercontent.com\/sunfing\/iNg\/main\/Icons\/AirportIcons\/001LaoWang.png"},
-    {"name":"002LanDeng", "url":"https:\/\/raw.githubusercontent.com\/sunfing\/iNg\/main\/Icons\/AirportIcons\/002LanDeng.png"},
-    {"name":"003KuaiLian", "url":"https:\/\/raw.githubusercontent.com\/sunfing\/iNg\/main\/Icons\/AirportIcons\/003KuaiLian.png"},
+    {"name":"𝒃𝒊奇堡的厨子", "url":"https://raw.githubusercontent.com/sunfing/iNg/main/Icons/AirportIcons/000ingchl.png"},
+    {"name":"001LaoWang", "url":"https://raw.githubusercontent.com/sunfing/iNg/main/Icons/AirportIcons/001LaoWang.png"},
+    {"name":"002LanDeng", "url":"https://raw.githubusercontent.com/sunfing/iNg/main/Icons/AirportIcons/002LanDeng.png"},
+    {"name":"003KuaiLian", "url":"https://raw.githubusercontent.com/sunfing/iNg/main/Icons/AirportIcons/003KuaiLian.png"}
   ]
 }
