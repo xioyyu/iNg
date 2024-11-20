@@ -85,7 +85,7 @@ udp-policy-not-supported-behaviour = REJECT
 · 默认代理  = select, · 全球直连, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Surge1.png
 · 即时通讯  = select, · 全球直连, · 默认代理, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Speaker.png
 · 新闻社交  = select, · 全球直连, · 默认代理, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/News.png
-· 语言模型  = select, · 全球直连, · 默认代理, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/AI.png
+· 语言模型  = select, · 全球直连, · 默认代理, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/AIGC.png
 · 流媒体集  = select, · 全球直连, · 默认代理, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Clapper.png
 # 细分套娃策略组
 · 媒体中心  = select, · 全球直连, · 观影节点, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Emby.png
@@ -94,7 +94,7 @@ udp-policy-not-supported-behaviour = REJECT
 · 苹果新闻  = select, · 全球直连, · 新闻社交, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/AppleNews.png
 · 推特社交  = select, · 全球直连, · 新闻社交, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Twitter.png
 · 晒照片墙  = select, · 全球直连, · 新闻社交, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Instagram.png
-· ChatGPT   = select, · 全球直连, · 语言模型, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/OpenAI.png
+· ChatGPT   = select, · 全球直连, · 语言模型, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/OpenAI1.png
 · Claude    = select, · 全球直连, · 语言模型, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/ClaudeAI.png
 · Gemini    = select, · 全球直连, · 语言模型, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Gemini.png
 · Copilot   = select, · 全球直连, · 语言模型, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Copilot.png
@@ -108,7 +108,7 @@ udp-policy-not-supported-behaviour = REJECT
 # · 奈飞视频  = select, · 全球直连, · 流媒体集, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Netflix.png
 # · 迪士尼加  = select, · 全球直连, · 流媒体集, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Disney+.png
 # 细分默认策略组
-· 开源托管  = select, · 全球直连, · 默认代理, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/GitHub.png
+· 开源托管  = select, · 全球直连, · 默认代理, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/GitHub1.png
 · 云端防护  = select, · 全球直连, · 默认代理, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Cloudflare.png
 · 苹果服务  = select, · 全球直连, · 默认代理, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Apple.png
 · 微软服务  = select, · 全球直连, · 默认代理, · 省流节点, · 香港手动, · 台湾手动, · 狮城手动, · 日本手动, · 美国手动, · 香港自动, · 台湾自动, · 狮城自动, · 日本自动, · 美国自动, · 节点集合, icon-url = https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Microsoft.png
