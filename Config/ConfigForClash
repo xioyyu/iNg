@@ -32,27 +32,27 @@
   ###### ###### ###### ###### ###### ###### 策 略 组 锚 点 ###### ###### ###### ###### ###### ######
   anchor_policy_groups_default: &anchor_policy_groups_default             # 策略组 - 默认规则集配置
     type: select
-    proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
 
   anchor_policy_groups_message: &anchor_policy_groups_message             # 策略组 - 即时通讯规则集配置
     type: select
-    proxies: [🎯 全球直连, 💬 即时通讯, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 💬 即时通讯, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
 
   anchor_policy_groups_newssocialize: &anchor_policy_groups_newssocialize # 策略组 - 新闻社交规则集配置
     type: select
-    proxies: [🎯 全球直连, 📰 新闻社交, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 📰 新闻社交, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
 
   anchor_policy_groups_aigc: &anchor_policy_groups_aigc                   # 策略组 - 语言模型规则集配置
     type: select
-    proxies: [🎯 全球直连, 🎨 语言模型, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🎨 语言模型, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
 
   anchor_policy_groups_mediahub: &anchor_policy_groups_mediahub           # 策略组 - 流媒体集规则集配置
     type: select
-    proxies: [🎯 全球直连, 💽 观影节点, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 💽 观影节点, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
 
   anchor_policy_groups_streammedia: &anchor_policy_groups_streammedia     # 策略组 - 流媒体集规则集配置
     type: select
-    proxies: [🎯 全球直连, 🎬 流媒体集, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🎬 流媒体集, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
 
   ###### ###### ###### ###### ###### ###### 节 点 组 锚 点 ###### ###### ###### ###### ###### ######
   anchor_node_groups_selector: &anchor_node_groups_selector # 节点组 - 手动切换规则集配置
@@ -69,7 +69,7 @@
     lazy: true          # 默认为 true，未选择到当前策略组时，不进行健康检查和延迟测试
     disable-udp: false  # 是否禁用该策略组的 UDP
     include-all: true   # 引入所有本地和远程代理集节点，节点顺序按照名称排序
-    # hidden: true      # 是否隐藏策略组展示，需前端适配
+    # hidden: true        # 是否隐藏策略组展示，需前端适配
 
 # 代理集
   # 远程代理集
@@ -207,7 +207,7 @@
       ###### 大类速选策略组
       - name: 🚀 默认代理
         type: select
-        proxies: [🎯 全球直连, 🚫 全球拦截, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥶 冷门自选, 🍟 节点集合]
+        proxies: [🎯 全球直连, 🚫 全球拦截, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/ClashMeta.png
 
       - name: 💬 即时通讯
@@ -224,7 +224,7 @@
 
       - name: 🎬 流媒体集
         type: select
-        proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥶 冷门自选, 🍟 节点集合]
+        proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Clapper.png
 
       ###### 节点测速策略组
@@ -374,7 +374,7 @@
 
       - name: ❤ 省流节点
         <<: *anchor_node_groups_selector
-        filter: (?i)^(?!.*(emby)).*(0\.)  # 不区分大小写过滤前者并匹配后者
+        filter: (?i)^(?!.*(emby)).*(0\.)   # 不区分大小写过滤前者并匹配后者
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Heart.png
 
       ###### 国家或地区流媒体手动切换节点组
@@ -465,6 +465,12 @@
         filter: (?i)^(?!.*(emby|fam|家宽|starlink)).*(🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 
+      ###### 常用自选节点组
+      - name: 🥵 常用自选
+        <<: *anchor_node_groups_selector
+        filter: (?i)(?=.*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong|🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan|🇸🇬|狮城|新加坡|\b(sg)\b|singapore|🇯🇵|日本|\b(jp)\b|japan|🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates))
+        icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Available.png
+
       ###### 冷门自选节点组
       - name: 🥶 冷门自选
         <<: *anchor_node_groups_selector
@@ -474,7 +480,6 @@
       ###### 节点集合节点组
       - name: 🍟 节点集合
         <<: *anchor_node_groups_selector
-        # filter: 
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Available.png
 
 # 规则
