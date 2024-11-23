@@ -374,7 +374,7 @@
 
       - name: ❤ 省流节点
         <<: *anchor_node_groups_selector
-        filter: (?i)^(?!.*(emby)).*(0\.)   # 不区分大小写过滤前者并匹配后者
+        filter: (?i)^(?!.*(emby)).*(0\.)  # 不区分大小写过滤前者并匹配后者
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Heart.png
 
       ###### 国家或地区流媒体手动切换节点组
