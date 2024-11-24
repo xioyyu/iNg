@@ -46,7 +46,7 @@
     type: select
     proxies: [🎯 全球直连, 🎨 语言模型, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
 
-  anchor_policy_groups_mediahub: &anchor_policy_groups_mediahub           # 策略组 - 流媒体集规则集配置
+  anchor_policy_groups_mediahub: &anchor_policy_groups_mediahub           # 策略组 - 媒体中心规则集配置
     type: select
     proxies: [🎯 全球直连, 💽 观影节点, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
 
@@ -80,21 +80,21 @@
       url: xxx
       path: ./proxy_providers/Nodes.yaml  # 可选文件路径，不可重复，不同的远程代理集请自行设置不同的路径，“path”被注释掉时会使用 url 的 MD5 作为此文件的文件名
       # override:                           # 覆写节点内容，前缀/后缀二选一，除此之外还推荐使用 Sub Store(https://t.me/ing_chl/29) 订阅管理工具可对节点进行更多个性化修改
-      #   additional-prefix: "节点前缀"
-      #   additional-suffix: "节点后缀"
+        # additional-prefix: "节点前缀"
+        # additional-suffix: "节点后缀"
 
     # 𝑬𝒙𝒂𝒎𝒑𝒍𝒆:
-    #   <<: *anchor_proxy_providers
-    #   url: https://exampleurl.com
-    #   path: ./proxy_providers/Example.yaml
-    #   override:
-    #     additional-prefix: "Example"
-    #     additional-suffix: "Example"
+      # <<: *anchor_proxy_providers
+      # url: https://exampleurl.com
+      # path: ./proxy_providers/Example.yaml
+      # override:
+        # additional-prefix: "Example"
+        # additional-suffix: "Example"
 
   # 本地代理集
   # 该项仅用于远程资源首次下载需要挂梯时（一般不需要），可自行添加一个本地代理节点利用该节点下载更新订阅和规则，日常使用可删除或注释本项
   # proxies:
-  #   - { xxx }
+    # - { xxx }
 
 # 基础配置
   port: 7890        # HTTP(S) 代理端口
@@ -144,35 +144,35 @@
       - 223.5.5.5
       - 114.114.114.114
     # direct-nameserver:        # 用于 direct 出口域名解析的 DNS 服务器，如果不填则遵循 nameserver-policy、nameserver 和 fallback 的配置
-    #   - system
+      # - system
     # nameserver-policy:        # 指定域名查询的解析服务器，可使用 geosite，优先于 nameserver/fallback 查询
-    #   geosite:cn, private:     # 一般只开启该项
-    #     - https://223.5.5.5/dns-query
-    #     - https://120.53.53.53/dns-query
-    #   geosite:gfw, geolocation-!cn:
-    #     - https://1.1.1.1/dns-query
-    #     - https://8.8.8.8/dns-query
+      # geosite:cn, private:     # 一般只开启该项
+        # - https://223.5.5.5/dns-query
+        # - https://120.53.53.53/dns-query
+      # geosite:gfw, geolocation-!cn:
+        # - https://1.1.1.1/dns-query
+        # - https://8.8.8.8/dns-query
     nameserver:               # 默认域名解析服务器，除 nameserver-policy 指定规则外的所有域名都由 nameserver 解析，默认走代理
       - 223.5.5.5
       - 114.114.114.114
     # respect-rules: true       # DNS 连接遵守路由规则，需配置 proxy-server-nameserver
     # proxy-server-nameserver:  # 节点域名解析服务器，仅用于解析代理节点的域名，不填则遵循 nameserver-policy、nameserver 和 fallback 的配置
-    #   - https://223.5.5.5/dns-query
-    #   - https://120.53.53.53/dns-query
+      # - https://223.5.5.5/dns-query
+      # - https://120.53.53.53/dns-query
     # fallback:                 # 后备域名解析服务器，一般情况下使用境外 DNS，保证结果可信，配置 fallback 后默认启用 fallback-filter，geoip-code 为 cn
-    #   - tls://8.8.4.4
-    #   - tls://1.1.1.1
+      # - tls://8.8.4.4
+      # - tls://1.1.1.1
     # fallback-filter:          # 后备域名解析服务器筛选，满足条件的将使用 fallback 结果或只使用 fallback 解析
-    #   geoip: true
-    #   geoip-code:cn
-    #   geosite:
-    #     - gfw
-    #   ipcidr:
-    #     - 240.0.0.0/4
-    #   domain:
-    #     - '+.google.com'
-    #     - '+.facebook.com'
-    #     - '+.youtube.com'
+      # geoip: true
+      # geoip-code:cn
+      # geosite:
+        # - gfw
+      # ipcidr:
+        # - 240.0.0.0/4
+      # domain:
+        # - '+.google.com'
+        # - '+.facebook.com'
+        # - '+.youtube.com'
 
   sniffer:
     enable: true
