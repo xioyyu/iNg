@@ -493,10 +493,10 @@
     - RULE-SET, UnBan, 🎯 全球直连
     # - RULE-SET, BanAD, 🚫 全球拦截
     # - RULE-SET, BanProgramAD, 🚫 全球拦截
+    - RULE-SET, A_MediaHub, 📀 媒体中心           # Emby/Jellyfin
     - RULE-SET, A_Reject, 🚫 全球拦截             # 自定义拦截
     - RULE-SET, A_Proxy, 🚀 默认代理              # 自定义代理
     - RULE-SET, A_Direct, 🎯 全球直连             # 自定义直连
-    - RULE-SET, A_MediaHub, 📀 媒体中心           # Emby/Jellyfin
     - RULE-SET, Speedtest, ⚡ 速度测试
     - RULE-SET, WeChat, 🎯 全球直连
     - RULE-SET, Telegram, 📲 电报消息
@@ -570,6 +570,10 @@
       # <<: *anchor_rule_providers_classical_yaml
       # url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml
       # path: ./rule_providers/BanProgramAD.yaml
+    A_MediaHub: # 📀 媒体中心
+      <<: *anchor_rule_providers_classical_yaml
+      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/MediaHub/A_MediaHub.yaml
+      path: ./rule_providers/A_MediaHub.yaml
     A_Reject: # 🚫 全球拦截
       <<: *anchor_rule_providers_classical_yaml
       url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Reject/A_Reject.yaml
@@ -582,10 +586,6 @@
       <<: *anchor_rule_providers_classical_yaml
       url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Direct/A_Direct.yaml
       path: ./rule_providers/A_Direct.yaml
-    A_MediaHub: # 📀 媒体中心
-      <<: *anchor_rule_providers_classical_yaml
-      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/MediaHub/A_MediaHub.yaml
-      path: ./rule_providers/A_MediaHub.yaml
     Speedtest: # ⚡ 速度测试
       <<: *anchor_rule_providers_classical_yaml
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest_No_Resolve.yaml
