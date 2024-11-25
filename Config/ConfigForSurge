@@ -22,7 +22,7 @@ internet-test-url = http://www.baidu.com
 # >>> 代理测速 URL
 proxy-test-url = http://www.google.com/generate_204
 # >>> 测试超时（秒）
-test-timeout = 5
+test-timeout = 3
 # >>> 自定义 GeoIP 数据库 URL
 geoip-maxmind-url = https://github.com/Hackl0us/GeoIP2-CN/raw/release/Country.mmdb
 # >>> 禁用 GeoIP 自动更新
