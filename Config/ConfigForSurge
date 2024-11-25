@@ -160,10 +160,10 @@ RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/
 #
 # RULE-SET, https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge.txt, · 全球拦截, update-interval=86400, extended-matching
 #
+RULE-SET, https://raw.githubusercontent.com/sunfing/iNg/main/Rules/MediaHub/A_MediaHub.list, · 媒体中心, update-interval=86400  # Emby/Jellyfin
 RULE-SET, https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Reject/A_Reject.list, · 全球拦截, update-interval=86400      # 自定义拦截
 RULE-SET, https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Proxy/A_Proxy.list, · 默认代理, update-interval=86400        # 自定义代理
 RULE-SET, https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Direct/A_Direct.list, · 全球直连, update-interval=86400      # 自定义直连
-RULE-SET, https://raw.githubusercontent.com/sunfing/iNg/main/Rules/MediaHub/A_MediaHub.list, · 媒体中心, update-interval=86400  # Emby/Jellyfin
 #
 RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Speedtest/Speedtest.list, · 速度测试, update-interval=86400
 #
