@@ -117,7 +117,7 @@
   external-controller: 0.0.0.0:9090 # 外部控制
   external-ui: ui
   external-ui-url: https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
-  secret: openclash
+  secret: metacubexd
 
   geox-url:               # 自定义 GEO 数据库
     geoip: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
