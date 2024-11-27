@@ -1,4 +1,4 @@
-# 订阅频道：https://t.me/ing_chl
+# 订阅频道：https://t.me/i_chl
 # 本配置文件携带大量的注释，尽可能解释全部代码内容，其余不懂地方建议看官方文档 https://wiki.metacubex.one/
 # 初次使用建议详细阅读注释内容并修改必要的内容，如：在“远程代理集”填写自己的订阅链接
 
@@ -73,10 +73,10 @@
 
 # 代理集
   # 远程代理集
-  # 要添加更多远程代理集（名字不能重复）自行复制下面的“Example”示例代码粘贴添加 # 花体英文转换器：https://www.iamwawa.cn/fontchanger.html
+  # 要添加更多远程代理集（名字不能重复）自行复制下面的“Example”示例代码粘贴添加 # 花体英文转换器：https://www.iamwawa.cn/fontchanger.html / https://lingojam.com/FancyTextGenerator
   proxy-providers:
-    𝑵𝒐𝒅𝒆𝒔:  # 远程代理集名称
-      <<: *anchor_proxy_providers ###### 👇👇👇 订阅链接 👇👇👇 ######
+    𝑵𝒐𝒅𝒆𝒔:  # 远程代理集名称 ###### 👇👇👇 URL 行填写订阅链接 👇👇👇 ######
+      <<: *anchor_proxy_providers
       url: xxx
       path: ./proxy_providers/Nodes.yaml  # 可选文件路径，不可重复，不同的远程代理集请自行设置不同的路径，“path”被注释掉时会使用 url 的 MD5 作为此文件的文件名
       # override:                           # 覆写节点内容，前缀/后缀二选一，除此之外还推荐使用 Sub Store(https://t.me/ing_chl/29) 订阅管理工具可对节点进行更多个性化修改
