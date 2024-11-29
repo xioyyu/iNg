@@ -571,20 +571,20 @@
       # url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml
       # path: ./rule_providers/BanProgramAD.yaml
     A_MediaHub: # 📀 媒体中心
-      <<: *anchor_rule_providers_classical_text
-      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/A_MediaHub.list
+      <<: *anchor_rule_providers_classical_yaml
+      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/MediaHub/A_MediaHub.yaml
       path: ./rule_providers/A_MediaHub.yaml
     A_Reject: # 🚫 全球拦截
-      <<: *anchor_rule_providers_classical_text
-      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/A_Reject.list
+      <<: *anchor_rule_providers_classical_yaml
+      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Reject/A_Reject.yaml
       path: ./rule_providers/A_Reject.yaml
     A_Proxy: # 🚀 默认代理
-      <<: *anchor_rule_providers_classical_text
-      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/A_Proxy.list
+      <<: *anchor_rule_providers_classical_yaml
+      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Proxy/A_Proxy.yaml
       path: ./rule_providers/A_Proxy.yaml
     A_Direct: # 🎯 全球直连
-      <<: *anchor_rule_providers_classical_text
-      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/A_Direct.list
+      <<: *anchor_rule_providers_classical_yaml
+      url: https://raw.githubusercontent.com/sunfing/iNg/main/Rules/Direct/A_Direct.yaml
       path: ./rule_providers/A_Direct.yaml
     Speedtest: # ⚡ 速度测试
       <<: *anchor_rule_providers_classical_yaml
