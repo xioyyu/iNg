@@ -1,7 +1,7 @@
 # A_Direct
 # behavior: classical
 # format: text
-#
+# payload:
 DOMAIN,time.windows.com             # Windows 时间同步
 DOMAIN-SUFFIX,msftncsi.com          # Windows 连接检测
 DOMAIN-SUFFIX,msftconnecttest.com   # Windows 连接检测
