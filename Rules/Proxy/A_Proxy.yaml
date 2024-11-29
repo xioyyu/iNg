@@ -1,0 +1,22 @@
+# A_Proxy
+# behavior: classical
+# format: yaml
+payload:
+#
+  - DOMAIN-SUFFIX,aca.dog
+  - DOMAIN-SUFFIX,aca.best
+  - DOMAIN-SUFFIX,acaisbest.com
+  - DOMAIN-SUFFIX,122777.xyz
+  - DOMAIN-SUFFIX,12345.al
+  - DOMAIN-SUFFIX,xqc.best
+  - DOMAIN-SUFFIX,ip.sb
+  - DOMAIN-SUFFIX,ipify.org
+  - DOMAIN-SUFFIX,ipleak.net
+  - DOMAIN-SUFFIX,vercel.app
+  - DOMAIN-SUFFIX,keeflys.com
+  - DOMAIN-SUFFIX,follow.is
+  - DOMAIN-SUFFIX,landrop.app
+  - DOMAIN-SUFFIX,cleanmasters.store
+  - DOMAIN-SUFFIX,nmnm.fun
+  - DOMAIN-SUFFIX,nmteam.xyz
+  - DOMAIN-KEYWORD,sms-activate
