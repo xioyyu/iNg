@@ -1,5 +1,0 @@
-# A_Reject
-# behavior: classical
-payload:
-  - DOMAIN-SUFFIX,access-point.cloudmessaging.edge.microsoft.com
-  # - IP-CIDR,95.161.76.100/31,no-resolve # 缓解电报后台状态下被重新激活后出现转圈连接中的情况（实验性）
