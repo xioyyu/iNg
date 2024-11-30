@@ -2,9 +2,7 @@
 # 本配置文件携带大量的注释，尽可能解释全部代码内容，其余不懂地方建议看官方文档 https://wiki.metacubex.one/
 # 初次使用建议详细阅读注释内容并修改必要的内容，如：在“远程代理集”填写自己的订阅链接
 
-# 锚点集
-  # 由于 Yaml 配置文件从上往下读取的特性，锚点最好处于整个配置文件最上面，即必须先定义再引用
-  ###### ###### ###### ###### ###### ###### 远程代理集锚点 ###### ###### ###### ###### ###### ######
+# 远程代理集锚点
   anchor_proxy_providers: &anchor_proxy_providers
     type: http
     interval: 86400 # 单位为秒，定时更新代理列表，24 小时一次
@@ -15,61 +13,6 @@
       timeout: 3000 # 单位为毫秒，健康检查超时时间，大于 3 秒判定为失败
     filter:         # 常用排除，保留不包含下面关键字的节点
       (?i)^(?!.*(email|expire|test|total|traffic|use|used|版本|备用|不推荐|测试|到期|订阅|工单|官方|官网|官址|过期|获取|机场|客服|联系|流量|群|剩余|失联|套餐|网站|网址|下次|学术|已用|邮箱|有效))
-
-  ###### ###### ###### ###### ###### ###### 远程规则集锚点 ###### ###### ###### ###### ###### ######
-  anchor_rule_providers_classical_mrs: &anchor_rule_providers_classical_mrs {type: http, behavior: classical, interval: 86400, format: mrs}     # 经典规则集配置_mrs
-  anchor_rule_providers_classical_text: &anchor_rule_providers_classical_text {type: http, behavior: classical, interval: 86400, format: text}  # 经典规则集配置_text，即“.list”
-  anchor_rule_providers_classical_yaml: &anchor_rule_providers_classical_yaml {type: http, behavior: classical, interval: 86400, format: yaml}  # 经典规则集配置_yaml
-
-  anchor_rule_providers_domain_mrs: &anchor_rule_providers_domain_mrs {type: http, behavior: domain, interval: 86400, format: mrs}              # 域名规则集配置_mrs
-  anchor_rule_providers_domain_text: &anchor_rule_providers_domain_text {type: http, behavior: domain, interval: 86400, format: text}           # 域名规则集配置_text，即“.list”
-  anchor_rule_providers_domain_yaml: &anchor_rule_providers_domain_yaml {type: http, behavior: domain, interval: 86400, format: yaml}           # 域名规则集配置_yaml
-
-  anchor_rule_providers_ipcidr_mrs: &anchor_rule_providers_ipcidr_mrs {type: http, behavior: ipcidr, interval: 86400, format: mrs}              # IP-CIDR 规则集配置_mrs
-  anchor_rule_providers_ipcidr_text: &anchor_rule_providers_ipcidr_text {type: http, behavior: ipcidr, interval: 86400, format: text}           # IP-CIDR 规则集配置_text，即“.list”
-  anchor_rule_providers_ipcidr_yaml: &anchor_rule_providers_ipcidr_yaml {type: http, behavior: ipcidr, interval: 86400, format: yaml}           # IP-CIDR 规则集配置_yaml
-
-  ###### ###### ###### ###### ###### ###### 策 略 组 锚 点 ###### ###### ###### ###### ###### ######
-  anchor_policy_groups_default: &anchor_policy_groups_default             # 策略组 - 默认规则集配置
-    type: select
-    proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
-
-  anchor_policy_groups_message: &anchor_policy_groups_message             # 策略组 - 即时通讯规则集配置
-    type: select
-    proxies: [🎯 全球直连, 💬 即时通讯, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
-
-  anchor_policy_groups_newssocialize: &anchor_policy_groups_newssocialize # 策略组 - 新闻社交规则集配置
-    type: select
-    proxies: [🎯 全球直连, 📰 新闻社交, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
-
-  anchor_policy_groups_aigc: &anchor_policy_groups_aigc                   # 策略组 - 语言模型规则集配置
-    type: select
-    proxies: [🎯 全球直连, 🎨 语言模型, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
-
-  anchor_policy_groups_mediahub: &anchor_policy_groups_mediahub           # 策略组 - 媒体中心规则集配置
-    type: select
-    proxies: [🎯 全球直连, 💽 观影节点, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
-
-  anchor_policy_groups_streammedia: &anchor_policy_groups_streammedia     # 策略组 - 流媒体集规则集配置
-    type: select
-    proxies: [🎯 全球直连, 🎬 流媒体集, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
-
-  ###### ###### ###### ###### ###### ###### 节 点 组 锚 点 ###### ###### ###### ###### ###### ######
-  anchor_node_groups_selector: &anchor_node_groups_selector # 节点组 - 手动切换规则集配置
-    type: select
-    include-all: true   # 引入所有本地和远程代理集节点，节点顺序按照名称排序
-
-  anchor_node_groups_urltest: &anchor_node_groups_urltest   # 节点组 - 自动选择规则集配置
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300       # 单位为秒，健康检查时间间隔，5 分钟一次
-    tolerance: 20       # 单位为毫秒，节点切换容差，若当前节点的延迟超过了最佳节点延迟加上 tolerance 的值，系统就会尝试切换到另一个延迟更低的节点
-    timeout: 3000       # 单位为毫秒，健康检查超时时间，大于 3 秒判定为失败
-    max-failed-times: 3 # 默认 5 次，超过最大失败次数则触发一次强制健康检查
-    lazy: true          # 默认为 true，未选择到当前策略组时，不进行健康检查和延迟测试
-    disable-udp: false  # 是否禁用该策略组的 UDP
-    include-all: true   # 引入所有本地和远程代理集节点，节点顺序按照名称排序
-    # hidden: true        # 是否隐藏策略组展示，需前端适配
 
 # 代理集
   # 远程代理集
@@ -201,10 +144,54 @@
     # auto-redirect: true         # 仅支持 Linux，自动配置 iptables/nftables 以重定向 TCP 连接
     auto-detect-interface: true # 自动选择流量出口接口，多出口网卡同时连接的设备建议手动指定出口网卡
 
+# 策略组锚点
+  # 默认规则集配置
+  anchor_policy_groups_default: &anchor_policy_groups_default
+    type: select
+    proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+  # 即时通讯规则集配置
+  anchor_policy_groups_message: &anchor_policy_groups_message
+    type: select
+    proxies: [🎯 全球直连, 💬 即时通讯, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+  # 新闻社交规则集配置
+  anchor_policy_groups_newssocialize: &anchor_policy_groups_newssocialize
+    type: select
+    proxies: [🎯 全球直连, 📰 新闻社交, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+  # 语言模型规则集配置
+  anchor_policy_groups_aigc: &anchor_policy_groups_aigc
+    type: select
+    proxies: [🎯 全球直连, 🎨 语言模型, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+  # 媒体中心规则集配置
+  anchor_policy_groups_mediahub: &anchor_policy_groups_mediahub
+    type: select
+    proxies: [🎯 全球直连, 💽 观影节点, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+  # 流媒体集规则集配置
+  anchor_policy_groups_streammedia: &anchor_policy_groups_streammedia
+    type: select
+    proxies: [🎯 全球直连, 🎬 流媒体集, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+
+# 节点组锚点
+  # 手动切换规则集配置
+  anchor_node_groups_selector: &anchor_node_groups_selector
+    type: select
+    include-all: true   # 引入所有本地和远程代理集节点，节点顺序按照名称排序
+  # 自动选择规则集配置
+  anchor_node_groups_urltest: &anchor_node_groups_urltest
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300       # 单位为秒，健康检查时间间隔，5 分钟一次
+    tolerance: 20       # 单位为毫秒，节点切换容差，若当前节点的延迟超过了最佳节点延迟加上 tolerance 的值，系统就会尝试切换到另一个延迟更低的节点
+    timeout: 3000       # 单位为毫秒，健康检查超时时间，大于 3 秒判定为失败
+    max-failed-times: 3 # 默认 5 次，超过最大失败次数则触发一次强制健康检查
+    lazy: true          # 默认为 true，未选择到当前策略组时，不进行健康检查和延迟测试
+    disable-udp: false  # 是否禁用该策略组的 UDP
+    include-all: true   # 引入所有本地和远程代理集节点，节点顺序按照名称排序
+    # hidden: true        # 是否隐藏策略组展示，需前端适配
+
 # 代理组
   proxy-groups:
     # 策略组
-      ###### 大类速选策略组
+      # 大类速选策略组
       - name: 🚀 默认代理
         type: select
         proxies: [🎯 全球直连, 🚫 全球拦截, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
@@ -227,13 +214,13 @@
         proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Clapper.png
 
-      ###### 节点测速策略组
+      # 节点测速策略组
       - name: ⚡ 速度测试
         type: select
         proxies: [🎯 全球直连, 🍟 节点集合]
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Speedtest.png
 
-      ###### 细分套娃策略组
+      # 细分套娃策略组
       - name: 📲 电报消息
         <<: *anchor_policy_groups_message
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Telegram.png
@@ -318,7 +305,7 @@
         <<: *anchor_policy_groups_streammedia
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/PrimeVideo.png
 
-      ###### 细分默认策略组
+      # 细分默认策略组
       - name: 📂 下载服务
         <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/iCloud.png
@@ -347,12 +334,12 @@
         <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Game.png
 
-      ###### 流量兜底策略组
+      # 流量兜底策略组
       - name: 🐟 漏网之鱼
         <<: *anchor_policy_groups_default
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Final.png
 
-      ###### 直连与拦截策略组
+      # 直连与拦截策略组
       - name: 🎯 全球直连
         type: select
         proxies: [DIRECT, REJECT]
@@ -366,7 +353,7 @@
         # hidden: true
 
     # 节点组
-      ###### 自定义手动切换节点组
+      # 自定义手动切换节点组
       - name: 💽 观影节点
         <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(emby))          # 不区分大小写匹配关键字
@@ -377,7 +364,7 @@
         filter: (?i)^(?!.*(emby)).*(0\.)  # 不区分大小写过滤前者并匹配后者
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Heart.png
 
-      ###### 国家或地区流媒体手动切换节点组
+      # 国家或地区流媒体手动切换节点组
       - name: 🇭🇰 港流媒体
         <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong))
@@ -403,7 +390,7 @@
         filter: (?i)(?=.*(🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 
-      ###### 国家或地区手动切换节点组
+      # 国家或地区手动切换节点组
       - name: 🇭🇰 香港手动
         <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong))
@@ -439,7 +426,7 @@
         # filter: (?i)(?=.*(🇷🇺|俄罗斯|\b(ru)\b|russia))
         # icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Russia.png
 
-      ###### 国家或地区自动选择节点组
+      # 国家或地区自动选择节点组
       - name: 🇭🇰 香港自动
         <<: *anchor_node_groups_urltest
         filter: (?i)^(?!.*(emby|fam|家宽)).*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong)
@@ -465,19 +452,19 @@
         filter: (?i)^(?!.*(emby|fam|家宽|starlink)).*(🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 
-      ###### 常用自选节点组
+      # 常用自选节点组
       - name: 🥵 常用自选
         <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong|🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan|🇸🇬|狮城|新加坡|\b(sg)\b|singapore|🇯🇵|日本|\b(jp)\b|japan|🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Available.png
 
-      ###### 冷门自选节点组
+      # 冷门自选节点组
       - name: 🥶 冷门自选
         <<: *anchor_node_groups_selector
         filter: (?i)^(?!.*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong|🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan|🇸🇬|狮城|新加坡|\b(sg)\b|singapore|🇯🇵|日本|\b(jp)\b|japan|🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates))
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Available.png
 
-      ###### 节点集合节点组
+      # 节点集合节点组
       - name: 🍟 节点集合
         <<: *anchor_node_groups_selector
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Available.png
@@ -551,6 +538,19 @@
     - GEOIP, CN, 🎯 全球直连
     # - RULE-SET, geolocation-!cn, 🐟 漏网之鱼
     - MATCH, 🐟 漏网之鱼
+
+# 远程规则集锚点
+  # anchor_rule_providers_classical_mrs: &anchor_rule_providers_classical_mrs {type: http, behavior: classical, interval: 86400, format: mrs}     # 经典规则集配置_mrs
+  # anchor_rule_providers_classical_text: &anchor_rule_providers_classical_text {type: http, behavior: classical, interval: 86400, format: text}  # 经典规则集配置_text，即“.list”
+  anchor_rule_providers_classical_yaml: &anchor_rule_providers_classical_yaml {type: http, behavior: classical, interval: 86400, format: yaml}  # 经典规则集配置_yaml
+
+  # anchor_rule_providers_domain_mrs: &anchor_rule_providers_domain_mrs {type: http, behavior: domain, interval: 86400, format: mrs}              # 域名规则集配置_mrs
+  # anchor_rule_providers_domain_text: &anchor_rule_providers_domain_text {type: http, behavior: domain, interval: 86400, format: text}           # 域名规则集配置_text，即“.list”
+  # anchor_rule_providers_domain_yaml: &anchor_rule_providers_domain_yaml {type: http, behavior: domain, interval: 86400, format: yaml}           # 域名规则集配置_yaml
+
+  # anchor_rule_providers_ipcidr_mrs: &anchor_rule_providers_ipcidr_mrs {type: http, behavior: ipcidr, interval: 86400, format: mrs}              # IP-CIDR 规则集配置_mrs
+  # anchor_rule_providers_ipcidr_text: &anchor_rule_providers_ipcidr_text {type: http, behavior: ipcidr, interval: 86400, format: text}           # IP-CIDR 规则集配置_text，即“.list”
+  # anchor_rule_providers_ipcidr_yaml: &anchor_rule_providers_ipcidr_yaml {type: http, behavior: ipcidr, interval: 86400, format: yaml}           # IP-CIDR 规则集配置_yaml
 
 # 远程规则集
   rule-providers: # 🎯 全球直连
