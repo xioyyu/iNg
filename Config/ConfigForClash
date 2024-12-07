@@ -148,27 +148,27 @@
   # 默认规则集配置
   anchor_policy_groups_default: &anchor_policy_groups_default
     type: select
-    proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
   # 即时通讯规则集配置
   anchor_policy_groups_message: &anchor_policy_groups_message
     type: select
-    proxies: [🎯 全球直连, 💬 即时通讯, ❤ 省流节点, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 💬 即时通讯, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
   # 新闻社交规则集配置
   anchor_policy_groups_newssocialize: &anchor_policy_groups_newssocialize
     type: select
-    proxies: [🎯 全球直连, 📰 新闻社交, ❤ 省流节点, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 📰 新闻社交, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
   # 语言模型规则集配置
   anchor_policy_groups_aigc: &anchor_policy_groups_aigc
     type: select
-    proxies: [🎯 全球直连, 🎨 语言模型, ❤ 省流节点, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🎨 语言模型, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
   # 媒体中心规则集配置
   anchor_policy_groups_mediahub: &anchor_policy_groups_mediahub
     type: select
-    proxies: [🎯 全球直连, 💽 观影节点, ❤ 省流节点, 🇭🇰 港流媒体, 🇨🇳 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 💽 观影节点, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
   # 流媒体集规则集配置
   anchor_policy_groups_streammedia: &anchor_policy_groups_streammedia
     type: select
-    proxies: [🎯 全球直连, 🎬 流媒体集, ❤ 省流节点, 🇭🇰 港流媒体, 🇨🇳 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🎬 流媒体集, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
 
 # 节点组锚点
   # 手动切换规则集配置
@@ -194,7 +194,7 @@
       # 大类速选策略组
       - name: 🚀 默认代理
         type: select
-        proxies: [🎯 全球直连, 🚫 全球拦截, ❤ 省流节点, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+        proxies: [🎯 全球直连, 🚫 全球拦截, ❤ 省流节点, 🇭🇰 香港手动, 🇹🇼 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/ClashMeta.png
 
       - name: 💬 即时通讯
@@ -211,7 +211,7 @@
 
       - name: 🎬 流媒体集
         type: select
-        proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, 🇭🇰 港流媒体, 🇨🇳 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+        proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, 🇭🇰 港流媒体, 🇹🇼 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🇭🇰 香港自动, 🇹🇼 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Clapper.png
 
       # 节点测速策略组
@@ -370,10 +370,10 @@
         filter: (?i)(?=.*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 
-      - name: 🇨🇳 台流媒体
+      - name: 🇹🇼 台流媒体
         <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan))
-        icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+        icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
 
       - name: 🇸🇬 狮流媒体
         <<: *anchor_node_groups_selector
@@ -396,10 +396,10 @@
         filter: (?i)(?=.*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong))
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 
-      - name: 🇨🇳 台湾手动
+      - name: 🇹🇼 台湾手动
         <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan))
-        icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+        icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
 
       - name: 🇸🇬 狮城手动
         <<: *anchor_node_groups_selector
@@ -432,10 +432,10 @@
         filter: (?i)^(?!.*(emby|fam|家宽)).*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 
-      - name: 🇨🇳 台湾自动
+      - name: 🇹🇼 台湾自动
         <<: *anchor_node_groups_urltest
         filter: (?i)^(?!.*(emby|fam|家宽)).*(🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan)
-        icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+        icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
 
       - name: 🇸🇬 狮城自动
         <<: *anchor_node_groups_urltest
@@ -512,6 +512,7 @@
     - RULE-SET, ChinaMedia, 🎯 全球直连
     - RULE-SET, GoogleFCM, 🚀 默认代理
     - RULE-SET, Tencent, 🎯 全球直连
+    - RULE-SET, TeamViewer, 🎯 全球直连
     - RULE-SET, GitHub, 🎓 开源托管
     - RULE-SET, Cloudflarecn, 🎯 全球直连
     - RULE-SET, Cloudflare, 🥟 云端防护
@@ -698,6 +699,10 @@
       <<: *anchor_rule_providers_classical_yaml
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Tencent/Tencent_No_Resolve.yaml
       path: ./rule_providers/Tencent.yaml
+    TeamViewer: # 🎯 全球直连
+      <<: *anchor_rule_providers_classical_yaml
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TeamViewer/TeamViewer_No_Resolve.yaml
+      path: ./rule_providers/TeamViewer.yaml
     GitHub: # 🎓 开源托管
       <<: *anchor_rule_providers_classical_yaml
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub_No_Resolve.yaml
