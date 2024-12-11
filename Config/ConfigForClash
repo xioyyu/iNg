@@ -23,7 +23,7 @@
       <<: *anchor_proxy_providers
       url: xxx
       path: ./proxy_providers/Nodes.yaml  # 可选文件路径，不可重复，不同的远程代理集请自行设置不同的路径，“path”被注释掉时会使用 url 的 MD5 作为此文件的文件名
-      # override:                           # 覆写节点内容，前缀/后缀二选一，除此之外还推荐使用 Sub Store(https://t.me/i_chl/29) 订阅管理工具可对节点进行更多个性化修改
+      # override:                           # 覆写节点内容，前/后缀二选一，有多机场混合使用的需求时强烈建议添加前/后缀，避免因节点名重复而无法使用的情况，除此之外还推荐使用 Sub Store(https://t.me/i_chl/29) 订阅管理工具可对节点进行更多个性化修改
         # additional-prefix: "节点前缀"
         # additional-suffix: "节点后缀"
 
