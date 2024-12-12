@@ -1,2 +1,2 @@
 # iNg
-iNg 的仓库
+About iNg!
