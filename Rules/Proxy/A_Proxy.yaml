@@ -26,4 +26,5 @@ payload:
   - DOMAIN-SUFFIX,nmnm.fun
   - DOMAIN-SUFFIX,nmteam.xyz
   - DOMAIN-KEYWORD,sms-activate
-  - IP-CIDR,154.23.185.44/32,no-resolve
+  - IP-CIDR,154.23.185.44/32,no-resolve # SDKDNS
+  - IP-CIDR,8.219.119.196/32,no-resolve # Claw-SG
