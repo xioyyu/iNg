@@ -2,7 +2,7 @@
 # 仓库地址：https://github.com/sunfing/iNg/blob/main/Config/ConfigForClash
 # 本配置文件携带大量的注释，尽可能解释全部代码内容，其余不懂地方建议看官方文档 https://wiki.metacubex.one/
 # 初次使用建议详细阅读注释内容并修改必要的内容，如：在“远程代理集”填写自己的订阅链接
-
+# ⚠️⚠️⚠️注意 YAML 文本对缩进非常敏感，如果不知道自己改完后的格式是否有问题，务必细读 https://t.me/i_chl/26 的“注”，并用“YAML 验证器”二次检验格式是否有误
 # 远程代理集锚点
   anchor_proxy_providers: &anchor_proxy_providers
     type: http
@@ -17,23 +17,21 @@
 
 # 代理集
   # 远程代理集
-  # 要添加更多远程代理集（名字不能重复）自行复制下面的“Example”示例代码粘贴添加 # 花体英文转换器：https://www.iamwawa.cn/fontchanger.html / https://lingojam.com/FancyTextGenerator
+  # 要添加更多远程代理集即机场（名字不能重复）自行复制下面的示例模板粘贴添加，注意去掉机场名字前面的“#”且务必注意缩进量
+  # 四种模板任挑一种批量复制粘贴即可添加多个机场，建议小白无脑选择使用“无文件路径”的模板，注意去掉机场名字前面的“#”且务必注意缩进量
   proxy-providers:
-    𝑵𝒐𝒅𝒆𝒔:  # 远程代理集名称 ###### 👇👇👇 URL 行填写订阅链接 👇👇👇 ######
+    𝑵𝒐𝒅𝒆𝒔:  # 远程代理集名称 ###### 👇👇👇 URL 处填写订阅链接 👇👇👇 ######
       <<: *anchor_proxy_providers
-      url: xxx
-      path: ./proxy_providers/Nodes.yaml  # 可选文件路径，不可重复，不同的远程代理集请自行设置不同的路径，“path”被注释掉时会使用 url 的 MD5 作为此文件的文件名
+      url: '订阅链接'
+      path: ./proxy_providers/Nodes.yaml  # 可选文件路径，不可重复，不同的远程代理集请自行设置不同的路径，亦或是不使用“path”时会使用 url 的 MD5 作为此文件的文件名
       # override:                           # 覆写节点内容，前/后缀二选一，有多机场混合使用的需求时强烈建议添加前/后缀，避免因节点名重复而无法使用的情况，除此之外还推荐使用 Sub Store(https://t.me/i_chl/29) 订阅管理工具可对节点进行更多个性化修改
         # additional-prefix: "节点前缀"
         # additional-suffix: "节点后缀"
-
-    # 𝑬𝒙𝒂𝒎𝒑𝒍𝒆:
-      # <<: *anchor_proxy_providers
-      # url: https://exampleurl.com
-      # path: ./proxy_providers/Example.yaml
-      # override:
-        # additional-prefix: "Example"
-        # additional-suffix: "Example"
+    
+    # 机场名字 A: {<<: *anchor_proxy_providers, url: '订阅链接', override: {additional-prefix: "节点前缀"}} # 无文件路径 前缀 模版
+    # 机场名字 B: {<<: *anchor_proxy_providers, url: '订阅链接', override: {additional-suffix: "节点后缀"}} # 无文件路径 后缀 模版
+    # 机场名字 C: {<<: *anchor_proxy_providers, url: '订阅链接', path: ./proxy_providers/Example.yaml, override: {additional-prefix: "节点前缀"}} # 有文件路径 前缀 模版
+    # 机场名字 D: {<<: *anchor_proxy_providers, url: '订阅链接', path: ./proxy_providers/Example.yaml, override: {additional-suffix: "节点后缀"}} # 有文件路径 后缀 模版
 
   # 本地代理集
   # 该项可用于远程资源首次下载需要挂梯时（例如：订阅链接域名被墙。一般不需要），可自行添加一个本地代理节点利用该节点下载更新订阅和规则，日常使用可删除或注释本项；亦或是在此添加自建的本地代理节点
@@ -149,27 +147,27 @@
   # 默认规则集配置
   anchor_policy_groups_default: &anchor_policy_groups_default
     type: select
-    proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, ❤ 省流自动, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, ❤ 省流自动, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🏠 家宽自选, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
   # 即时通讯规则集配置
   anchor_policy_groups_message: &anchor_policy_groups_message
     type: select
-    proxies: [🎯 全球直连, 🚀 默认代理, 💬 即时通讯, ❤ 省流节点, ❤ 省流自动, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🚀 默认代理, 💬 即时通讯, ❤ 省流节点, ❤ 省流自动, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🏠 家宽自选, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
   # 新闻社交规则集配置
   anchor_policy_groups_newssocialize: &anchor_policy_groups_newssocialize
     type: select
-    proxies: [🎯 全球直连, 🚀 默认代理, 📰 新闻社交, ❤ 省流节点, ❤ 省流自动, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🚀 默认代理, 📰 新闻社交, ❤ 省流节点, ❤ 省流自动, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🏠 家宽自选, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
   # 语言模型规则集配置
   anchor_policy_groups_aigc: &anchor_policy_groups_aigc
     type: select
-    proxies: [🎯 全球直连, 🚀 默认代理, 🎨 语言模型, ❤ 省流节点, ❤ 省流自动, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🚀 默认代理, 🎨 语言模型, ❤ 省流节点, ❤ 省流自动, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🏠 家宽自选, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
   # 媒体中心规则集配置
   anchor_policy_groups_mediahub: &anchor_policy_groups_mediahub
     type: select
-    proxies: [🎯 全球直连, 🚀 默认代理, 💽 观影节点, 💽 观影自动, ❤ 省流节点, ❤ 省流自动, 🇭🇰 港流媒体, 🇨🇳 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🚀 默认代理, 💽 观影节点, 💽 观影自动, ❤ 省流节点, ❤ 省流自动, 🇭🇰 港流媒体, 🇨🇳 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🏠 家宽自选, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
   # 流媒体集规则集配置
   anchor_policy_groups_streammedia: &anchor_policy_groups_streammedia
     type: select
-    proxies: [🎯 全球直连, 🚀 默认代理, 🎬 流媒体集, ❤ 省流节点, ❤ 省流自动, 🇭🇰 港流媒体, 🇨🇳 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+    proxies: [🎯 全球直连, 🚀 默认代理, 🎬 流媒体集, ❤ 省流节点, ❤ 省流自动, 🇭🇰 港流媒体, 🇨🇳 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🏠 家宽自选, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
 
 # 节点组锚点
   # 手动切换规则集配置
@@ -195,7 +193,7 @@
       # 大类速选策略组
       - name: 🚀 默认代理
         type: select
-        proxies: [🎯 全球直连, 🚫 全球拦截, ❤ 省流节点, ❤ 省流自动, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+        proxies: [🎯 全球直连, 🚫 全球拦截, ❤ 省流节点, ❤ 省流自动, 🇭🇰 香港手动, 🇨🇳 台湾手动, 🇸🇬 狮城手动, 🇯🇵 日本手动, 🇺🇸 美国手动, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🏠 家宽自选, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/ClashMeta.png
 
       - name: 💬 即时通讯
@@ -212,7 +210,7 @@
 
       - name: 🎬 流媒体集
         type: select
-        proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, ❤ 省流自动, 🇭🇰 港流媒体, 🇨🇳 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
+        proxies: [🎯 全球直连, 🚀 默认代理, ❤ 省流节点, ❤ 省流自动, 🇭🇰 港流媒体, 🇨🇳 台流媒体, 🇸🇬 狮流媒体, 🇯🇵 日流媒体, 🇺🇸 美流媒体, 🇭🇰 香港自动, 🇨🇳 台湾自动, 🇸🇬 狮城自动, 🇯🇵 日本自动, 🇺🇸 美国自动, 🏠 家宽自选, 🥵 常用自选, 🥶 冷门自选, 🍟 节点集合]
         icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Clapper.png
 
       # 节点测速策略组
@@ -444,40 +442,46 @@
       # 国家或地区自动选择节点组
       - name: 🇭🇰 香港自动
         <<: *anchor_node_groups_urltest
-        filter: (?i)^(?!.*(emby|fam|家宽)).*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong)
+        filter: (?i)^(?!.*(emby|\b(fam)\b|家宽)).*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 
       - name: 🇨🇳 台湾自动
         <<: *anchor_node_groups_urltest
-        filter: (?i)^(?!.*(emby|fam|家宽)).*(🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan)
+        filter: (?i)^(?!.*(emby|\b(fam)\b|家宽)).*(🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
 
       - name: 🇸🇬 狮城自动
         <<: *anchor_node_groups_urltest
-        filter: (?i)^(?!.*(emby|fam|家宽)).*(🇸🇬|狮城|新加坡|\b(sg)\b|singapore)
+        filter: (?i)^(?!.*(emby|\b(fam)\b|家宽)).*(🇸🇬|狮城|新加坡|\b(sg)\b|singapore)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 
       - name: 🇯🇵 日本自动
         <<: *anchor_node_groups_urltest
-        filter: (?i)^(?!.*(emby|fam|家宽)).*(🇯🇵|日本|\b(jp)\b|japan)
+        filter: (?i)^(?!.*(emby|\b(fam)\b|家宽)).*(🇯🇵|日本|\b(jp)\b|japan)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 
       - name: 🇺🇸 美国自动
         <<: *anchor_node_groups_urltest
-        filter: (?i)^(?!.*(emby|fam|家宽|starlink)).*(🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates)
+        filter: (?i)^(?!.*(emby|\b(fam)\b|家宽|starlink)).*(🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates)
         icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+
+      # 家宽自选节点组
+      - name: 🏠 家宽自选
+        <<: *anchor_node_groups_selector
+        filter: (?i)(?=.*(\b(fam)\b|家宽))
+        icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Fam.png
 
       # 常用自选节点组
       - name: 🥵 常用自选
         <<: *anchor_node_groups_selector
         filter: (?i)(?=.*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong|🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan|🇸🇬|狮城|新加坡|\b(sg)\b|singapore|🇯🇵|日本|\b(jp)\b|japan|🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates))
-        icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Available.png
+        icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Hot.png
 
       # 冷门自选节点组
       - name: 🥶 冷门自选
         <<: *anchor_node_groups_selector
         filter: (?i)^(?!.*(🇭🇰|香港|\b(hk|h\.k\.)\b|hong\ kong|hongkong|🇨🇳|🇹🇼|台湾|\b(tw)\b|taiwan|🇸🇬|狮城|新加坡|\b(sg)\b|singapore|🇯🇵|日本|\b(jp)\b|japan|🇺🇸|美国|\b(us|u\.s\.)\b|united\ states|unitedstates))
-        icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Available.png
+        icon: https://raw.githubusercontent.com/sunfing/iNg/main/Icons/GeneralIcons/Cold.png
 
       # 节点集合节点组
       - name: 🍟 节点集合
@@ -545,6 +549,7 @@
     - RULE-SET, Origin, 🎮 游戏服务
     - RULE-SET, Sony, 🎮 游戏服务
     - RULE-SET, Nintendo, 🎮 游戏服务
+    - RULE-SET, Xbox, 🎮 游戏服务
     - RULE-SET, Game, 🎮 游戏服务
     - RULE-SET, Download, 🎯 全球直连
     - RULE-SET, PrivateTracker, 🎯 全球直连
@@ -787,6 +792,10 @@
       <<: *anchor_rule_providers_classical_yaml
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nintendo/Nintendo_No_Resolve.yaml
       path: ./rule_providers/Nintendo.yaml
+    Xbox: # 🎮 游戏服务
+      <<: *anchor_rule_providers_classical_yaml
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Xbox/Xbox_No_Resolve.yaml
+      path: ./rule_providers/Xbox.yaml
     Game: # 🎮 游戏服务
       <<: *anchor_rule_providers_classical_yaml
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml
