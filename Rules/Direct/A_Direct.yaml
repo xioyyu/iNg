@@ -17,7 +17,8 @@ payload:
   - DOMAIN-SUFFIX,pockyt.io
   - DOMAIN-SUFFIX,dogfight360.com
   - DOMAIN-SUFFIX,yxvm.com
-  - DOMAIN-KEYWORD,stun.
+  - DOMAIN-SUFFIX,wogg.net
+  - DOMAIN-KEYWORD,stun
   - DOMAIN-KEYWORD,alist
   - DOMAIN-KEYWORD,pan666
   - DOMAIN-KEYWORD,turgame
